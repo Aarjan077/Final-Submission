@@ -5,96 +5,170 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nepal Intro Screen</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Oswald", sans-serif;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
 
     body {
-      min-height: 100vh;
-      overflow: hidden;
+      font-family: "Amatic SC", cursive;
+      background-image: url("https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1974&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      background:
-        linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.12)),
-        url("https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1974&auto=format&fit=crop");
-      background-size: cover;
-      background-position: center;
     }
 
-    .sky-animation {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 5;
+    .box {
+      width: 335px;
+      height: 455px;
+      background: rgba(80, 135, 175, 0.42);
+      backdrop-filter: blur(1.5px);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      padding: 25px 28px;
+    }
+
+    h1 {
+      color: white;
+      font-size: 36px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 82px;
+      text-align: center;
+    }
+
+    .input-area {
+      width: 100%;
+      margin-bottom: 92px;
+    }
+
+    label {
+      display: block;
+      color: white;
+      font-size: 34px;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 46px;
+    }
+
+    input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+      outline: none;
+
+      color: white;
+      font-family: "Amatic SC", cursive;
+      font-size: 28px;
+      text-align: center;
+      padding: 4px 0;
+    }
+
+    .start-btn {
+      width: 245px;
+      height: 92px;
+
+      border: none;
+      border-radius: 60px;
+
+      background: rgba(20, 40, 90, 0.78);
+      color: white;
+
+      font-family: "Amatic SC", cursive;
+      font-size: 39px;
+      letter-spacing: 2px;
+      font-weight: 700;
+
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.04);
+      background: rgba(20, 40, 90, 0.92);
     }
 
     .paper-plane {
-      position: absolute;
-      top: 120px;
-      left: -140px;
-      width: 90px;
-      height: 60px;
-      animation: flyAcross 8s linear infinite;
+      position: fixed;
+      top: 110px;
+      left: -130px;
+      width: 85px;
+      height: 55px;
+      z-index: 10;
+      opacity: 0.8;
+      animation: planeFly 9s linear infinite;
+      pointer-events: none;
     }
 
-    .plane-body {
+    .plane-main {
       position: absolute;
-      width: 90px;
+      width: 85px;
       height: 45px;
       background: white;
       clip-path: polygon(0 45%, 100% 0, 72% 52%, 100% 100%);
-      filter: drop-shadow(0 8px 8px rgba(0,0,0,0.25));
+      filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.25));
     }
 
     .plane-wing {
       position: absolute;
       left: 22px;
       top: 22px;
-      width: 48px;
-      height: 26px;
-      background: #dfe8ff;
-      clip-path: polygon(0 0, 100% 0, 22% 100%);
-      opacity: 0.95;
+      width: 45px;
+      height: 24px;
+      background: #dceaff;
+      clip-path: polygon(0 0, 100% 0, 20% 100%);
+      opacity: 0.85;
     }
 
-    .plane-fold {
+    .plane-line {
       position: absolute;
-      left: 34px;
-      top: 19px;
-      width: 42px;
+      left: 32px;
+      top: 20px;
+      width: 40px;
       height: 3px;
-      background: rgba(20, 30, 80, 0.25);
-      transform: rotate(-18deg);
-      border-radius: 10px;
+      background: rgba(40, 70, 120, 0.28);
+      border-radius: 20px;
+      transform: rotate(-17deg);
     }
 
-    @keyframes flyAcross {
+    @keyframes planeFly {
       0% {
-        transform: translateX(-160px) translateY(0) rotate(8deg);
+        transform: translateX(-150px) translateY(0) rotate(8deg);
       }
 
       20% {
-        transform: translateX(25vw) translateY(-45px) rotate(-4deg);
+        transform: translateX(25vw) translateY(-35px) rotate(-5deg);
       }
 
       40% {
-        transform: translateX(45vw) translateY(25px) rotate(6deg);
+        transform: translateX(45vw) translateY(22px) rotate(7deg);
       }
 
       60% {
-        transform: translateX(65vw) translateY(-35px) rotate(-3deg);
+        transform: translateX(65vw) translateY(-28px) rotate(-4deg);
       }
 
       80% {
-        transform: translateX(85vw) translateY(20px) rotate(5deg);
+        transform: translateX(85vw) translateY(18px) rotate(5deg);
       }
 
       100% {
@@ -103,18 +177,19 @@
     }
 
     .wind {
-      position: absolute;
+      position: fixed;
       left: -220px;
       height: 3px;
-      width: 160px;
+      border-radius: 50px;
       background: linear-gradient(
         to right,
         transparent,
-        rgba(255,255,255,0.8),
+        rgba(255, 255, 255, 0.55),
         transparent
       );
-      border-radius: 50px;
       animation: windMove 4s linear infinite;
+      pointer-events: none;
+      z-index: 9;
     }
 
     .wind::before,
@@ -122,42 +197,43 @@
       content: "";
       position: absolute;
       height: 3px;
+      border-radius: 50px;
       background: linear-gradient(
         to right,
         transparent,
-        rgba(255,255,255,0.65),
+        rgba(255, 255, 255, 0.4),
         transparent
       );
-      border-radius: 50px;
     }
 
     .wind::before {
-      width: 90px;
+      width: 85px;
       top: -12px;
       left: 35px;
     }
 
     .wind::after {
-      width: 120px;
+      width: 115px;
       top: 12px;
-      left: 15px;
+      left: 18px;
     }
 
     .wind-1 {
-      top: 90px;
+      top: 150px;
+      width: 170px;
       animation-delay: 0s;
     }
 
     .wind-2 {
-      top: 180px;
-      width: 210px;
-      animation-delay: 1.5s;
+      top: 260px;
+      width: 220px;
+      animation-delay: 1.4s;
     }
 
     .wind-3 {
-      top: 320px;
+      top: 390px;
       width: 140px;
-      animation-delay: 2.8s;
+      animation-delay: 2.6s;
     }
 
     @keyframes windMove {
@@ -180,122 +256,44 @@
       }
     }
 
-    .container {
-      width: 430px;
-      min-height: 400px;
-      background: rgba(125, 20, 40, 0.45);
-      backdrop-filter: blur(3px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 25px 35px 35px;
-      z-index: 2;
-    }
-
-    h1 {
-      color: white;
-      font-size: 46px;
-      letter-spacing: 2px;
-      font-weight: 300;
-      margin-bottom: 45px;
-    }
-
-    .input-box {
-      width: 290px;
-      margin-bottom: 55px;
-    }
-
-    label {
-      display: block;
-      color: white;
-      font-size: 34px;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-      font-weight: 300;
-    }
-
-    input {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid white;
-      padding: 8px 0;
-      color: white;
-      font-size: 24px;
-      outline: none;
-    }
-
-    .start-btn {
-      width: 275px;
-      height: 86px;
-      border: none;
-      border-radius: 50px;
-      background: rgba(15, 25, 85, 0.82);
-      color: white;
-      font-size: 52px;
-      letter-spacing: 3px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .start-btn:hover {
-      transform: scale(1.05);
-      background: rgba(15, 25, 85, 0.95);
-    }
-
     @media (max-width: 500px) {
-      .container {
-        width: 88%;
-        min-height: 360px;
-        padding: 25px 25px 35px;
+      .box {
+        width: 335px;
+        height: 455px;
       }
 
       h1 {
-        font-size: 38px;
-        margin-bottom: 35px;
+        font-size: 34px;
       }
 
-      .input-box {
-        width: 85%;
-        margin-bottom: 45px;
+      label {
+        font-size: 32px;
       }
 
       .start-btn {
-        width: 85%;
-        height: 75px;
-        font-size: 42px;
-      }
-
-      .paper-plane {
-        width: 70px;
-        height: 45px;
-      }
-
-      .plane-body {
-        width: 70px;
-        height: 35px;
+        width: 240px;
+        height: 88px;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="sky-animation">
-    <div class="wind wind-1"></div>
-    <div class="wind wind-2"></div>
-    <div class="wind wind-3"></div>
-
-    <div class="paper-plane">
-      <div class="plane-body"></div>
-      <div class="plane-wing"></div>
-      <div class="plane-fold"></div>
-    </div>
+  <div class="paper-plane">
+    <div class="plane-main"></div>
+    <div class="plane-wing"></div>
+    <div class="plane-line"></div>
   </div>
 
-  <div class="container">
+  <div class="wind wind-1"></div>
+  <div class="wind wind-2"></div>
+  <div class="wind wind-3"></div>
+
+  <div class="box">
     <h1>ENTER YOUR NAME</h1>
 
-    <div class="input-box">
+    <div class="input-area">
       <label for="username">NAME</label>
       <input type="text" id="username" />
     </div>
