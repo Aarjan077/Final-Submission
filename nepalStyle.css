@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Amatic SC", cursive;
+  background-image: url("https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=1974&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 335px;
+  height: 455px;
+  background: rgba(80, 135, 175, 0.42);
+  backdrop-filter: blur(1.5px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 25px 28px;
+}
+
+h1 {
+  color: white;
+  font-size: 36px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 82px;
+  text-align: center;
+}
+
+.input-area {
+  width: 100%;
+  margin-bottom: 92px;
+}
+
+label {
+  display: block;
+  color: white;
+  font-size: 34px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 46px;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.85);
+  outline: none;
+
+  color: white;
+  font-family: "Amatic SC", cursive;
+  font-size: 28px;
+  text-align: center;
+  padding: 4px 0;
+}
+
+.start-btn {
+  width: 245px;
+  height: 92px;
+
+  border: none;
+  border-radius: 60px;
+
+  background: rgba(20, 40, 90, 0.78);
+  color: white;
+
+  font-family: "Amatic SC", cursive;
+  font-size: 39px;
+  letter-spacing: 2px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.start-btn:hover {
+  transform: scale(1.04);
+  background: rgba(20, 40, 90, 0.92);
+}
+
+.paper-plane {
+  position: fixed;
+  top: 110px;
+  left: -130px;
+  width: 85px;
+  height: 55px;
+  z-index: 10;
+  opacity: 0.8;
+  animation: planeFly 9s linear infinite;
+  pointer-events: none;
+}
+
+.plane-main {
+  position: absolute;
+  width: 85px;
+  height: 45px;
+  background: white;
+  clip-path: polygon(0 45%, 100% 0, 72% 52%, 100% 100%);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+.plane-wing {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  width: 45px;
+  height: 24px;
+  background: #dceaff;
+  clip-path: polygon(0 0, 100% 0, 20% 100%);
+  opacity: 0.85;
+}
+
+.plane-line {
+  position: absolute;
+  left: 32px;
+  top: 20px;
+  width: 40px;
+  height: 3px;
+  background: rgba(40, 70, 120, 0.28);
+  border-radius: 20px;
+  transform: rotate(-17deg);
+}
+
+@keyframes planeFly {
+  0% {
+    transform: translateX(-150px) translateY(0) rotate(8deg);
+  }
+
+  20% {
+    transform: translateX(25vw) translateY(-35px) rotate(-5deg);
+  }
+
+  40% {
+    transform: translateX(45vw) translateY(22px) rotate(7deg);
+  }
+
+  60% {
+    transform: translateX(65vw) translateY(-28px) rotate(-4deg);
+  }
+
+  80% {
+    transform: translateX(85vw) translateY(18px) rotate(5deg);
+  }
+
+  100% {
+    transform: translateX(120vw) translateY(-10px) rotate(8deg);
+  }
+}
+
+.wind {
+  position: fixed;
+  left: -220px;
+  height: 3px;
+  border-radius: 50px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  animation: windMove 4s linear infinite;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.wind::before,
+.wind::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  border-radius: 50px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.wind::before {
+  width: 85px;
+  top: -12px;
+  left: 35px;
+}
+
+.wind::after {
+  width: 115px;
+  top: 12px;
+  left: 18px;
+}
+
+.wind-1 {
+  top: 150px;
+  width: 170px;
+  animation-delay: 0s;
+}
+
+.wind-2 {
+  top: 260px;
+  width: 220px;
+  animation-delay: 1.4s;
+}
+
+.wind-3 {
+  top: 390px;
+  width: 140px;
+  animation-delay: 2.6s;
+}
+
+@keyframes windMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(130vw);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .box {
+    width: 335px;
+    height: 455px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  label {
+    font-size: 32px;
+  }
+
+  .start-btn {
+    width: 240px;
+    height: 88px;
+  }
+}
