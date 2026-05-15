@@ -23,15 +23,17 @@ function closeExpandedBox() {
   homePage.classList.remove("modal-open");
 }
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
+buttons.forEach(function (button) {
+  button.addEventListener("click", function () {
     openExpandedBox(button);
   });
 });
 
-closeBtn.addEventListener("click", closeExpandedBox);
+closeBtn.addEventListener("click", function () {
+  closeExpandedBox();
+});
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeExpandedBox();
   }
