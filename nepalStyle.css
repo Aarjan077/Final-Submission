@@ -104,12 +104,14 @@ body {
   font-size: 1.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  line-height: 1.1;
 }
 
-/* Hide descriptions until clicked */
+/* Hide descriptions, map, and Esc text until clicked */
 .nepal-card p,
 .nepal-card span,
-.nepal-card .map-content {
+.nepal-card .map-content,
+.nepal-card .map-description {
   display: none;
 }
 
@@ -209,6 +211,12 @@ body {
 }
 
 /* Map of Nepal card */
+.map-card:not(.active) h2 {
+  margin: 0;
+  white-space: normal;
+  line-height: 1.1;
+}
+
 .map-card.active {
   height: 72vh;
 }
@@ -219,6 +227,10 @@ body {
   margin-bottom: 18px;
 }
 
+.map-card.active .map-description {
+  display: block;
+}
+
 .map-card.active img {
   width: min(560px, 100%);
   max-height: 330px;
@@ -226,7 +238,7 @@ body {
   display: block;
   margin: 0 auto 8px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   padding: 12px;
 }
 
@@ -239,10 +251,6 @@ body {
   text-align: center;
   margin-bottom: 18px;
   color: white;
-}
-
-.map-card.active > p:not(.map-caption) {
-  text-align: left;
 }
 
 /* Paper plane */
