@@ -3,112 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regions of Nepal</title>
+
+  <title>Nepal Website</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" 
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header class="hero">
-    <nav class="navbar">
-      <h1>Nepal</h1>
-      <div>
-        <a href="#map-section">Map</a>
-        <a href="#himalayas">Himalayas</a>
-        <a href="#hills">Hills</a>
-        <a href="#terai">Terai</a>
-      </div>
-    </nav>
+  <main class="home-page">
 
-    <div class="hero-content">
-      <h2>Explore the Three Regions of Nepal</h2>
-      <p>
-        Discover the Himalayas, Hilly Region, and Terai Region through an interactive map.
-      </p>
-      <a href="#map-section" class="btn">Start Exploring</a>
-    </div>
-  </header>
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
 
-  <main>
-    <section id="map-section" class="map-section">
-      <h2>Interactive Map of Nepal</h2>
-      <p>Click on a region to learn more about it.</p>
+    <!-- Flying paper airplane -->
+    <div class="paper-plane">✈</div>
 
-      <div class="map-card">
-        <svg viewBox="0 0 900 300" class="nepal-map">
-          <!-- Himalayas -->
-          <path
-            id="himalayas-region"
-            class="region himalayas"
-            d="M60 90 C180 20, 300 45, 430 55 C560 65, 690 15, 840 75 L810 120 C670 90, 540 125, 420 105 C300 85, 190 115, 70 135 Z"
-          ></path>
+    <!-- Wind effects -->
+    <div class="wind wind-1"></div>
+    <div class="wind wind-2"></div>
+    <div class="wind wind-3"></div>
+    <div class="wind wind-4"></div>
 
-          <!-- Hills -->
-          <path
-            id="hills-region"
-            class="region hills"
-            d="M70 135 C190 115, 300 85, 420 105 C540 125, 670 90, 810 120 L790 185 C650 160, 540 195, 420 170 C300 145, 185 175, 80 190 Z"
-          ></path>
-
-          <!-- Terai -->
-          <path
-            id="terai-region"
-            class="region terai"
-            d="M80 190 C185 175, 300 145, 420 170 C540 195, 650 160, 790 185 L760 235 C610 225, 520 255, 400 230 C275 205, 170 240, 95 235 Z"
-          ></path>
-
-          <text x="390" y="80" class="map-label">Himalayas</text>
-          <text x="410" y="150" class="map-label">Hills</text>
-          <text x="420" y="220" class="map-label">Terai</text>
-        </svg>
-      </div>
+    <!-- Website title -->
+    <section class="title-area">
+      <h1>Explore Nepal</h1>
+      <p>Mountains, culture, regions, and stories of Nepal</p>
     </section>
 
-    <section id="himalayas" class="info-section">
-      <div class="info-card">
-        <h2>Himalayan Region</h2>
-        <p>
-          The Himalayan Region lies in the northern part of Nepal. It is famous for snow-covered mountains,
-          cold climate, glaciers, and some of the highest peaks in the world, including Mount Everest.
-        </p>
-        <p>
-          This region attracts trekkers, climbers, and tourists from all around the world. People here often
-          follow mountain lifestyles, and tourism is an important part of the economy.
-        </p>
-      </div>
+    <!-- Four main buttons -->
+    <button 
+      class="info-button top-left"
+      data-title="Tourism in Nepal"
+      data-content="Nepal is one of the most beautiful tourism destinations in the world. It is famous for Mount Everest, trekking routes, temples, lakes, rivers, forests, wildlife, and rich culture. Tourists visit Nepal for adventure, nature, history, and spiritual experiences. Popular places include Kathmandu Valley, Pokhara, Lumbini, Chitwan National Park, and the Everest region."
+    >
+      Tourism
+    </button>
+
+    <button 
+      class="info-button top-right"
+      data-title="Map of Nepal"
+      data-content="Nepal is a landlocked country in South Asia, located between India and China. It has a unique shape and diverse geography. Nepal is commonly divided into three main geographical regions: the Himalayan Region in the north, the Hilly Region in the middle, and the Terai Region in the south."
+    >
+      Map of Nepal
+    </button>
+
+    <button 
+      class="info-button bottom-left"
+      data-title="Current Affairs of Nepal"
+      data-content="Current affairs in Nepal include topics related to politics, education, tourism, climate change, road development, economy, technology, sports, and social issues. Learning about current affairs helps people understand Nepal's present situation and its future development."
+    >
+      Current Affairs
+    </button>
+
+    <button 
+      class="info-button bottom-right"
+      data-title="Regions of Nepal"
+      data-content="Nepal has three main geographical regions. The Himalayan Region has snow-covered mountains and cold climate. The Hilly Region has valleys, forests, rivers, and terraced farms. The Terai Region has flat fertile land, warmer weather, and strong agricultural importance. Each region has its own culture, lifestyle, climate, and natural beauty."
+    >
+      Regions
+    </button>
+
+    <!-- Expanded information box -->
+    <section class="modal-box" id="modalBox">
+      <button class="close-btn" id="closeBtn">×</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalContent"></p>
+      <p class="escape-text">Press Esc to close</p>
     </section>
 
-    <section id="hills" class="info-section">
-      <div class="info-card">
-        <h2>Hilly Region</h2>
-        <p>
-          The Hilly Region is located between the Himalayas and the Terai. It has beautiful valleys, forests,
-          rivers, and terraced farms. Kathmandu and Pokhara are two famous cities in this region.
-        </p>
-        <p>
-          This region is known for its cultural diversity, traditional villages, moderate climate, and scenic
-          landscapes.
-        </p>
-      </div>
-    </section>
-
-    <section id="terai" class="info-section">
-      <div class="info-card">
-        <h2>Terai Region</h2>
-        <p>
-          The Terai Region is the southern lowland area of Nepal. It has flat land, fertile soil, warmer
-          temperatures, and is very important for farming.
-        </p>
-        <p>
-          This region produces many crops such as rice, wheat, sugarcane, and vegetables. It is also home to
-          national parks, wildlife, and many growing cities.
-        </p>
-      </div>
-    </section>
   </main>
-
-  <footer>
-    <p>Made with ❤️ for Nepal</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
