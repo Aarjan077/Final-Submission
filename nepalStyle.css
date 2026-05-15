@@ -109,8 +109,7 @@ body {
   line-height: 1.1;
 }
 
-/* VERY IMPORTANT:
-   When card is small, hide everything except the h2 title */
+/* Hide everything except the title before clicking */
 .nepal-card:not(.active) > *:not(h2) {
   display: none !important;
 }
@@ -122,7 +121,7 @@ body {
     inset 0 0 25px rgba(255, 255, 255, 0.18);
 }
 
-/* Original positions */
+/* Original card positions */
 .top-left {
   top: 11%;
   left: 7%;
@@ -143,14 +142,14 @@ body {
   right: 7%;
 }
 
-/* Hide other cards after one is opened */
+/* Hide other cards after one opens */
 .home-page.card-open .nepal-card:not(.active) {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.75);
 }
 
-/* The same clicked card expands */
+/* The clicked card expands */
 .nepal-card.active {
   position: fixed;
 
@@ -212,7 +211,7 @@ body {
 
 /* Map of Nepal card */
 .map-card.active {
-  height: 72vh;
+  height: 75vh;
 }
 
 .map-card.active .map-content {
@@ -221,18 +220,14 @@ body {
   margin-bottom: 18px;
 }
 
-.map-card.active .map-description {
-  display: block;
-}
-
 .map-card.active img {
-  width: min(560px, 100%);
-  max-height: 330px;
+  width: min(600px, 100%);
+  max-height: 350px;
   object-fit: contain;
   display: block;
-  margin: 0 auto 8px;
+  margin: 0 auto 10px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   padding: 12px;
 }
 
@@ -245,6 +240,10 @@ body {
   text-align: center;
   margin-bottom: 18px;
   color: white;
+}
+
+.map-card.active .map-description {
+  display: block;
 }
 
 /* Paper plane */
@@ -352,7 +351,7 @@ body {
   }
 }
 
-/* Mobile */
+/* Tablet and smaller screens */
 @media (max-width: 850px) {
   .nepal-card {
     width: 165px;
@@ -403,6 +402,7 @@ body {
   }
 }
 
+/* Phone screens */
 @media (max-width: 500px) {
   .title-area {
     width: 90%;
