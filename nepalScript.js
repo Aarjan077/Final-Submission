@@ -1,40 +1,44 @@
+const homePage = document.getElementById("homePage");
 const buttons = document.querySelectorAll(".info-button");
 
-const expandedBox = document.getElementById("expandedBox");
-const expandedTitle = document.getElementById("expandedTitle");
-const expandedContent = document.getElementById("expandedContent");
+let activeButton = null;
 
-const closeBtn = document.getElementById("closeBtn");
-const homePage = document.querySelector(".home-page");
+function openButton(button) {
+  if (activeButton !== null) {
+    activeButton.classList.remove("active");
+  }
 
-function openExpandedBox(button) {
-  const title = button.textContent.trim();
-  const content = button.getAttribute("data-content");
+  activeButton = button;
 
-  expandedTitle.textContent = title;
-  expandedContent.textContent = content;
-
-  expandedBox.classList.add("active");
-  homePage.classList.add("modal-open");
+  button.classList.add("active");
+  homePage.classList.add("expanded");
 }
 
-function closeExpandedBox() {
-  expandedBox.classList.remove("active");
-  homePage.classList.remove("modal-open");
+function closeButton() {
+  if (activeButton !== null) {
+    activeButton.classList.remove("active");
+    activeButton = null;
+  }
+
+  homePage.classList.remove("expanded");
 }
 
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
-    openExpandedBox(button);
+    if (!button.classList.contains("active")) {
+      openButton(button);
+    }
   });
-});
 
-closeBtn.addEventListener("click", function () {
-  closeExpandedBox();
+  button.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      openButton(button);
+    }
+  });
 });
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
-    closeExpandedBox();
+    closeButton();
   }
 });
