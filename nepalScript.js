@@ -1,36 +1,38 @@
 const buttons = document.querySelectorAll(".info-button");
-const modalBox = document.getElementById("modalBox");
-const modalTitle = document.getElementById("modalTitle");
-const modalContent = document.getElementById("modalContent");
+
+const expandedBox = document.getElementById("expandedBox");
+const expandedTitle = document.getElementById("expandedTitle");
+const expandedContent = document.getElementById("expandedContent");
+
 const closeBtn = document.getElementById("closeBtn");
 const homePage = document.querySelector(".home-page");
 
-function openModal(button) {
-  const title = button.getAttribute("data-title");
+function openExpandedBox(button) {
+  const title = button.textContent.trim();
   const content = button.getAttribute("data-content");
 
-  modalTitle.textContent = title;
-  modalContent.textContent = content;
+  expandedTitle.textContent = title;
+  expandedContent.textContent = content;
 
-  modalBox.classList.add("active");
+  expandedBox.classList.add("active");
   homePage.classList.add("modal-open");
 }
 
-function closeModal() {
-  modalBox.classList.remove("active");
+function closeExpandedBox() {
+  expandedBox.classList.remove("active");
   homePage.classList.remove("modal-open");
 }
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    openModal(button);
+    openExpandedBox(button);
   });
 });
 
-closeBtn.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeExpandedBox);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    closeModal();
+    closeExpandedBox();
   }
 });
