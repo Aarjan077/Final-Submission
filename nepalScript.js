@@ -1,44 +1,43 @@
 const homePage = document.getElementById("homePage");
-const buttons = document.querySelectorAll(".info-button");
+const cards = document.querySelectorAll(".nepal-card");
 
-let activeButton = null;
+let openCard = null;
 
-function openButton(button) {
-  if (activeButton !== null) {
-    activeButton.classList.remove("active");
+function openSelectedCard(card) {
+  if (openCard) {
+    openCard.classList.remove("active");
   }
 
-  activeButton = button;
-
-  button.classList.add("active");
-  homePage.classList.add("expanded");
+  openCard = card;
+  card.classList.add("active");
+  homePage.classList.add("card-open");
 }
 
-function closeButton() {
-  if (activeButton !== null) {
-    activeButton.classList.remove("active");
-    activeButton = null;
+function closeSelectedCard() {
+  if (openCard) {
+    openCard.classList.remove("active");
+    openCard = null;
   }
 
-  homePage.classList.remove("expanded");
+  homePage.classList.remove("card-open");
 }
 
-buttons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    if (!button.classList.contains("active")) {
-      openButton(button);
+cards.forEach(function (card) {
+  card.addEventListener("click", function () {
+    if (!card.classList.contains("active")) {
+      openSelectedCard(card);
     }
   });
 
-  button.addEventListener("keydown", function (event) {
+  card.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-      openButton(button);
+      openSelectedCard(card);
     }
   });
 });
 
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
-    closeButton();
+    closeSelectedCard();
   }
 });
