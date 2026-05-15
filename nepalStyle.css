@@ -86,6 +86,8 @@ body {
     0 18px 40px rgba(0, 0, 0, 0.45),
     inset 0 0 18px rgba(255, 255, 255, 0.15);
 
+  overflow: hidden;
+
   transition:
     top 0.55s ease,
     left 0.55s ease,
@@ -107,12 +109,10 @@ body {
   line-height: 1.1;
 }
 
-/* Hide descriptions, map, and Esc text until clicked */
-.nepal-card p,
-.nepal-card span,
-.nepal-card .map-content,
-.nepal-card .map-description {
-  display: none;
+/* VERY IMPORTANT:
+   When card is small, hide everything except the h2 title */
+.nepal-card:not(.active) > *:not(h2) {
+  display: none !important;
 }
 
 .nepal-card:hover {
@@ -211,12 +211,6 @@ body {
 }
 
 /* Map of Nepal card */
-.map-card:not(.active) h2 {
-  margin: 0;
-  white-space: normal;
-  line-height: 1.1;
-}
-
 .map-card.active {
   height: 72vh;
 }
