@@ -1,5 +1,9 @@
 const homePage = document.getElementById("homePage");
 const cards = document.querySelectorAll(".nepal-card");
+const closeButtons = document.querySelectorAll(".close-card");
+
+const anthemButton = document.getElementById("anthemButton");
+const anthemAudio = document.getElementById("anthemAudio");
 
 let openCard = null;
 
@@ -36,8 +40,32 @@ cards.forEach(function (card) {
   });
 });
 
+closeButtons.forEach(function (button) {
+  button.addEventListener("click", function (event) {
+    event.stopPropagation();
+    closeSelectedCard();
+  });
+});
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSelectedCard();
   }
+});
+
+anthemButton.addEventListener("click", function () {
+  if (anthemAudio.paused) {
+    anthemAudio.play();
+    anthemButton.textContent = "PAUSE ANTHEM";
+    anthemButton.classList.add("playing");
+  } else {
+    anthemAudio.pause();
+    anthemButton.textContent = "NATIONAL ANTHEM";
+    anthemButton.classList.remove("playing");
+  }
+});
+
+anthemAudio.addEventListener("ended", function () {
+  anthemButton.textContent = "NATIONAL ANTHEM";
+  anthemButton.classList.remove("playing");
 });
