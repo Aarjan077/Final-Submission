@@ -4,92 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Explore Nepal</title>
+  <title>Nepal Intro Screen</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" 
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="nepalStyle.css" />
 </head>
+
 <body>
 
-  <main class="home-page" id="homePage">
+  <div class="paper-plane">
+    <div class="plane-main"></div>
+    <div class="plane-wing"></div>
+    <div class="plane-line"></div>
+  </div>
 
-    <div class="dark-overlay"></div>
+  <div class="wind wind-1"></div>
+  <div class="wind wind-2"></div>
+  <div class="wind wind-3"></div>
 
-    <div class="paper-plane">✈</div>
+  <div class="box" id="mainBox">
+    <button class="close-btn" id="closeBtn" onclick="goBackToNormal()">X</button>
 
-    <div class="wind wind-1"></div>
-    <div class="wind wind-2"></div>
-    <div class="wind wind-3"></div>
+    <h1>ENTER YOUR NAME</h1>
 
-    <section class="title-area">
-      <h1>Explore Nepal</h1>
-      <p>Mountains, culture, regions, and stories of Nepal</p>
-    </section>
-
-    <div class="nepal-card top-left" tabindex="0">
-      <h2>Tourism</h2>
-
-      <p>
-        Nepal is one of the most beautiful tourism destinations in the world. It is famous for Mount Everest,
-        trekking routes, temples, lakes, rivers, forests, wildlife, and rich culture. Tourists visit Nepal for
-        adventure, nature, history, and spiritual experiences. Popular places include Kathmandu Valley, Pokhara,
-        Lumbini, Chitwan National Park, and the Everest region.
-      </p>
-
-      <span>Press Esc to close</span>
+    <div class="input-area">
+      <label for="username">NAME</label>
+      <input type="text" id="username" />
     </div>
 
-    <div class="nepal-card top-right map-card" tabindex="0">
-      <h2>Map of Nepal</h2>
+    <button class="start-btn" onclick="startSite()">START</button>
+  </div>
 
-      <div class="map-content">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Nepal_geographic_regions.png"
-          alt="Map of Nepal showing the Himalayan, Hilly, and Terai regions"
-        />
+  <button class="anthem-btn" onclick="toggleAnthem()">
+    NATIONAL ANTHEM
+  </button>
 
-        <p class="map-caption">Map of Nepal</p>
-      </div>
-
-      <p class="map-description">
-        Nepal is commonly divided into three main geographical regions: the Himalayan Region,
-        the Hilly Region, and the Terai Region.
-      </p>
-
-      <span>Press Esc to close</span>
-    </div>
-
-    <div class="nepal-card bottom-left" tabindex="0">
-      <h2>Current Affairs</h2>
-
-      <p>
-        Current affairs in Nepal include topics related to politics, education, tourism, climate change,
-        road development, economy, technology, sports, and social issues. Learning about current affairs
-        helps people understand Nepal's present situation and future development.
-      </p>
-
-      <span>Press Esc to close</span>
-    </div>
-
-    <div class="nepal-card bottom-right" tabindex="0">
-      <h2>Regions</h2>
-
-      <p>
-        Nepal has three main geographical regions. The Himalayan Region has snow-covered mountains and cold
-        climate. The Hilly Region has valleys, forests, rivers, and terraced farms. The Terai Region has flat,
-        fertile land and warmer weather. Each region has its own culture, lifestyle, climate, and natural beauty.
-      </p>
-
-      <span>Press Esc to close</span>
-    </div>
-
-  </main>
+  <audio id="anthemAudio">
+    <source
+      src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Sayaun_Thunga_Phool_Ka_%28instrumental%29.ogg"
+      type="audio/ogg"
+    />
+  </audio>
 
   <script src="nepalScript.js"></script>
 </body>

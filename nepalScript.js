@@ -1,43 +1,40 @@
-const homePage = document.getElementById("homePage");
-const cards = document.querySelectorAll(".nepal-card");
+function startSite() {
+  const username = document.getElementById("username").value.trim();
 
-let openCard = null;
-
-function openSelectedCard(card) {
-  if (openCard) {
-    openCard.classList.remove("active");
+  if (username === "") {
+    alert("Please enter your name!");
+  } else {
+    alert("Welcome to Nepal, " + username + "!");
   }
-
-  openCard = card;
-  card.classList.add("active");
-  homePage.classList.add("card-open");
 }
 
-function closeSelectedCard() {
-  if (openCard) {
-    openCard.classList.remove("active");
-    openCard = null;
-  }
+function toggleAnthem() {
+  const anthem = document.getElementById("anthemAudio");
+  const button = document.querySelector(".anthem-btn");
 
-  homePage.classList.remove("card-open");
+  if (anthem.paused) {
+    anthem.play();
+    button.textContent = "PAUSE ANTHEM";
+  } else {
+    anthem.pause();
+    button.textContent = "NATIONAL ANTHEM";
+  }
 }
 
-cards.forEach(function (card) {
-  card.addEventListener("click", function () {
-    if (!card.classList.contains("active")) {
-      openSelectedCard(card);
-    }
-  });
+function goBackToNormal() {
+  const mainBox = document.getElementById("mainBox");
+  const anthem = document.getElementById("anthemAudio");
+  const anthemButton = document.querySelector(".anthem-btn");
 
-  card.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      openSelectedCard(card);
-    }
-  });
-});
+  mainBox.classList.remove("hide-box");
 
-document.addEventListener("keydown", function (event) {
+  anthem.pause();
+  anthem.currentTime = 0;
+  anthemButton.textContent = "NATIONAL ANTHEM";
+}
+
+document.addEventListener("keydown", function(event) {
   if (event.key === "Escape") {
-    closeSelectedCard();
+    goBackToNormal();
   }
 });
