@@ -396,17 +396,6 @@ body {
   pointer-events: none;
 }
 
-/* Hidden YouTube player */
-#anthemPlayer {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  left: -9999px;
-  bottom: -9999px;
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* Paper plane */
 .paper-plane {
   position: absolute;

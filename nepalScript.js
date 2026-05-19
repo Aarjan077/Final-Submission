@@ -3,10 +3,9 @@ const cards = document.querySelectorAll(".nepal-card");
 const closeButtons = document.querySelectorAll(".close-card");
 
 const anthemButton = document.getElementById("anthemButton");
+const anthemAudio = document.getElementById("anthemAudio");
 
 let openCard = null;
-let anthemPlayer;
-let anthemPlaying = false;
 
 function openSelectedCard(card) {
   if (openCard) {
@@ -59,49 +58,29 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-/* YouTube player for Nepal national anthem */
-function onYouTubeIframeAPIReady() {
-  anthemPlayer = new YT.Player("anthemPlayer", {
-    height: "1",
-    width: "1",
-    videoId: "1_5j-xyH7vA",
-    playerVars: {
-      autoplay: 0,
-      controls: 0
-    },
-    events: {
-      onStateChange: onAnthemStateChange
-    }
-  });
-}
-
-function onAnthemStateChange(event) {
-  if (event.data === YT.PlayerState.ENDED) {
-    anthemPlaying = false;
-    anthemButton.textContent = "NATIONAL ANTHEM";
-    anthemButton.classList.remove("playing");
-  }
-}
-
 anthemButton.addEventListener("click", function () {
-  if (!anthemPlayer || typeof anthemPlayer.playVideo !== "function") {
-    alert("The anthem player is still loading. Please click again in a moment.");
-    return;
-  }
+  if (anthemAudio.paused) {
+    anthemAudio.currentTime = 0;
 
-  if (anthemPlaying === false) {
-    anthemPlayer.seekTo(0);
-    anthemPlayer.playVideo();
+    anthemAudio.play()
+      .then(function () {
+        anthemButton.textContent = "PAUSE ANTHEM";
+        anthemButton.classList.add("playing");
+      })
+      .catch(function () {
+        anthemButton.textContent = "NATIONAL ANTHEM";
+        anthemButton.classList.remove("playing");
+        alert("The anthem audio could not be played. Please check that nationalAnthem.mp3 is uploaded with the correct file name.");
+      });
 
-    anthemPlaying = true;
-    anthemButton.textContent = "PAUSE ANTHEM";
-    anthemButton.classList.add("playing");
   } else {
-    anthemPlayer.pauseVideo();
-
-    anthemPlaying = false;
+    anthemAudio.pause();
     anthemButton.textContent = "NATIONAL ANTHEM";
     anthemButton.classList.remove("playing");
   }
-}
-);
+});
+
+anthemAudio.addEventListener("ended", function () {
+  anthemButton.textContent = "NATIONAL ANTHEM";
+  anthemButton.classList.remove("playing");
+});
