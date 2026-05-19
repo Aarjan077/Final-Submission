@@ -201,12 +201,12 @@ body {
   max-width: 820px;
 }
 
-/* X button hidden by default */
+/* X button hidden before card opens */
 .close-card {
   display: none;
 }
 
-/* X button only appears when card is bigger */
+/* X button appears only after card becomes bigger */
 .nepal-card.active .close-card {
   display: flex;
   align-items: center;

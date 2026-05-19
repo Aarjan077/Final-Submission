@@ -60,9 +60,19 @@ document.addEventListener("keydown", function (event) {
 
 anthemButton.addEventListener("click", function () {
   if (anthemAudio.paused) {
-    anthemAudio.play();
-    anthemButton.textContent = "PAUSE ANTHEM";
-    anthemButton.classList.add("playing");
+    anthemAudio.currentTime = 0;
+
+    anthemAudio.play()
+      .then(function () {
+        anthemButton.textContent = "PAUSE ANTHEM";
+        anthemButton.classList.add("playing");
+      })
+      .catch(function () {
+        anthemButton.textContent = "NATIONAL ANTHEM";
+        anthemButton.classList.remove("playing");
+        alert("The anthem audio could not be played. The online audio link may be blocked or unavailable.");
+      });
+
   } else {
     anthemAudio.pause();
     anthemButton.textContent = "NATIONAL ANTHEM";
