@@ -27,14 +27,18 @@ function closeSelectedCard() {
 }
 
 cards.forEach(function (card) {
-  card.addEventListener("click", function () {
+  card.addEventListener("click", function (event) {
+    if (event.target.classList.contains("close-card")) {
+      return;
+    }
+
     if (!card.classList.contains("active")) {
       openSelectedCard(card);
     }
   });
 
   card.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && !card.classList.contains("active")) {
       openSelectedCard(card);
     }
   });
@@ -42,6 +46,7 @@ cards.forEach(function (card) {
 
 closeButtons.forEach(function (button) {
   button.addEventListener("click", function (event) {
+    event.preventDefault();
     event.stopPropagation();
     closeSelectedCard();
   });
