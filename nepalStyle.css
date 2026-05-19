@@ -297,7 +297,7 @@ body {
   margin-bottom: 18px;
 }
 
-/* Map image back to original style */
+/* Map image using transparent PNG */
 .map-card.active img {
   width: min(600px, 100%);
   max-height: 350px;
@@ -305,22 +305,21 @@ body {
   display: block;
   margin: 0 auto 10px;
 
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 12px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   box-shadow: none;
-
-  mix-blend-mode: normal;
   filter: none;
 
   transition:
     transform 0.35s ease,
-    box-shadow 0.35s ease;
+    filter 0.35s ease;
 }
 
+/* Hover effect for map image */
 .map-card.active img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+  transform: scale(1.07) rotate(-1deg);
+  filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.55));
 }
 
 .map-card.active .map-caption {
@@ -565,7 +564,7 @@ body {
 
   .map-card.active img {
     max-height: 260px;
-    padding: 10px;
+    padding: 0;
   }
 
   .map-card.active .map-caption {
@@ -611,7 +610,7 @@ body {
 
   .map-card.active img {
     max-height: 220px;
-    padding: 8px;
+    padding: 0;
   }
 
   .map-card.active .map-caption {

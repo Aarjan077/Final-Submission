@@ -103,4 +103,5 @@ anthemButton.addEventListener("click", function () {
     anthemButton.textContent = "NATIONAL ANTHEM";
     anthemButton.classList.remove("playing");
   }
-});
+}
+);
