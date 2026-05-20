@@ -5,12 +5,18 @@ const closeButtons = document.querySelectorAll(".close-card");
 const anthemButton = document.getElementById("anthemButton");
 const anthemAudio = document.getElementById("anthemAudio");
 
+const menuButton = document.getElementById("menuButton");
+const sideMenu = document.getElementById("sideMenu");
+const menuClose = document.getElementById("menuClose");
+
 let openCard = null;
 
 function openSelectedCard(card) {
   if (openCard) {
     openCard.classList.remove("active");
   }
+
+  closeMenu();
 
   openCard = card;
   card.classList.add("active");
@@ -24,6 +30,25 @@ function closeSelectedCard() {
   }
 
   homePage.classList.remove("card-open");
+}
+
+function openMenu() {
+  sideMenu.classList.add("open");
+  menuButton.classList.add("active");
+}
+
+function closeMenu() {
+  sideMenu.classList.remove("open");
+  menuButton.classList.remove("active");
+}
+
+function toggleMenu() {
+  if (sideMenu.classList.contains("open")) {
+    closeMenu();
+  } else {
+    closeMenu();
+    openMenu();
+  }
 }
 
 cards.forEach(function (card) {
@@ -52,9 +77,31 @@ closeButtons.forEach(function (button) {
   });
 });
 
+menuButton.addEventListener("click", function (event) {
+  event.stopPropagation();
+  toggleMenu();
+});
+
+menuClose.addEventListener("click", function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  closeMenu();
+});
+
+document.addEventListener("click", function (event) {
+  if (
+    sideMenu.classList.contains("open") &&
+    !sideMenu.contains(event.target) &&
+    !menuButton.contains(event.target)
+  ) {
+    closeMenu();
+  }
+});
+
 document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSelectedCard();
+    closeMenu();
   }
 });
 
