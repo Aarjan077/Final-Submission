@@ -7,7 +7,6 @@ const anthemAudio = document.getElementById("anthemAudio");
 
 const menuButton = document.getElementById("menuButton");
 const sideMenu = document.getElementById("sideMenu");
-const menuClose = document.getElementById("menuClose");
 
 const inquiryForm = document.getElementById("inquiryForm");
 const thankYouDialog = document.getElementById("thankYouDialog");
@@ -25,7 +24,10 @@ function openSelectedCard(card) {
 
   openCard = card;
   card.classList.add("active");
-  homePage.classList.add("card-open");
+
+  if (homePage) {
+    homePage.classList.add("card-open");
+  }
 }
 
 function closeSelectedCard() {
@@ -95,14 +97,6 @@ if (menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.stopPropagation();
     toggleMenu();
-  });
-}
-
-if (menuClose) {
-  menuClose.addEventListener("click", function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    closeMenu();
   });
 }
 

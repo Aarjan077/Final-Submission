@@ -107,18 +107,18 @@ body {
   right: 32px;
 
   width: 230px;
-  padding: 26px 22px 22px;
+  padding: 38px 22px 28px;
 
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 22px;
 
-  border-radius: 24px;
+  border-radius: 28px;
 
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(245, 245, 255, 0.9)
+    rgba(255, 255, 255, 0.96),
+    rgba(245, 245, 255, 0.88)
   );
 
   box-shadow:
@@ -142,39 +142,10 @@ body {
   pointer-events: auto;
 }
 
-.menu-close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-
-  width: 28px;
-  height: 28px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: rgba(145, 0, 0, 0.9);
-  color: white;
-
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  cursor: pointer;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-.menu-close:hover {
-  transform: scale(1.12) rotate(90deg);
-  background: #111;
-}
-
 .menu-link {
   display: block;
 
-  padding: 14px 18px;
-  margin-top: 5px;
+  padding: 18px 18px;
 
   border-radius: 999px;
 
@@ -283,7 +254,6 @@ body {
   line-height: 1.1;
 }
 
-/* Hide everything except title before clicking */
 .nepal-card:not(.active) > *:not(h2) {
   display: none !important;
 }
@@ -295,7 +265,6 @@ body {
     inset 0 0 25px rgba(255, 255, 255, 0.18);
 }
 
-/* Original card positions */
 .top-left {
   top: 11%;
   left: 7%;
@@ -316,14 +285,12 @@ body {
   right: 7%;
 }
 
-/* Hide other cards after one opens */
 .home-page.card-open .nepal-card:not(.active) {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.75);
 }
 
-/* Expanded card */
 .nepal-card.active {
   position: fixed;
 
@@ -378,7 +345,6 @@ body {
   max-width: 820px;
 }
 
-/* Clean white scrollbar inside the opened card */
 .nepal-card.active::-webkit-scrollbar {
   width: 10px;
 }
@@ -415,12 +381,10 @@ body {
   background: transparent;
 }
 
-/* X button hidden before card opens */
 .close-card {
   display: none;
 }
 
-/* X button appears only after card becomes bigger */
 .nepal-card.active .close-card {
   display: flex;
   align-items: center;
@@ -460,7 +424,6 @@ body {
   color: white;
 }
 
-/* Map card */
 .map-card.active {
   height: 72vh;
 }
@@ -471,7 +434,6 @@ body {
   margin-bottom: 18px;
 }
 
-/* Map image using transparent PNG */
 .map-card.active img {
   width: min(600px, 100%);
   max-height: 350px;
@@ -490,7 +452,6 @@ body {
     filter 0.35s ease;
 }
 
-/* Hover effect for map image */
 .map-card.active img:hover {
   transform: scale(1.07) rotate(-1deg);
   filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.55));
@@ -511,7 +472,6 @@ body {
   display: block;
 }
 
-/* National anthem button */
 .anthem-button {
   position: fixed;
   left: 50%;
@@ -570,7 +530,6 @@ body {
   pointer-events: none;
 }
 
-/* Paper plane */
 .paper-plane {
   position: absolute;
   top: 35%;
@@ -610,7 +569,6 @@ body {
   }
 }
 
-/* Wind */
 .wind {
   position: absolute;
   left: -200px;
@@ -1129,12 +1087,12 @@ body {
     top: 72px;
     right: 18px;
     width: 190px;
-    padding: 24px 16px 18px;
+    padding: 30px 16px 22px;
   }
 
   .menu-link {
     font-size: 1rem;
-    padding: 12px 14px;
+    padding: 14px 14px;
   }
 
   .nepal-card {
