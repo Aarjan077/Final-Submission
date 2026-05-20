@@ -291,7 +291,9 @@ body {
   transform: scale(0.75);
 }
 
-.nepal-card.active {
+/* Expanded card and About popup */
+.nepal-card.active,
+.about-popup.open {
   position: fixed;
 
   top: 50%;
@@ -332,36 +334,53 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.nepal-card.active h2 {
+.nepal-card.active h2,
+.about-popup.open h2 {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   margin-bottom: 25px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.nepal-card.active p {
+.nepal-card.active p,
+.about-popup.open p {
   display: block;
   font-family: Arial, sans-serif;
   font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.8;
   max-width: 820px;
+  color: white;
+  margin-bottom: 18px;
 }
 
-.nepal-card.active::-webkit-scrollbar {
+/* About popup hidden by default */
+.about-popup {
+  display: none;
+}
+
+/* Scrollbar */
+.nepal-card.active::-webkit-scrollbar,
+.about-popup.open::-webkit-scrollbar {
   width: 10px;
 }
 
-.nepal-card.active::-webkit-scrollbar-button {
+.nepal-card.active::-webkit-scrollbar-button,
+.about-popup.open::-webkit-scrollbar-button {
   display: none;
   width: 0;
   height: 0;
 }
 
-.nepal-card.active::-webkit-scrollbar-track {
+.nepal-card.active::-webkit-scrollbar-track,
+.about-popup.open::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.18);
   border-radius: 999px;
   margin: 48px 8px 35px 0;
 }
 
-.nepal-card.active::-webkit-scrollbar-thumb {
+.nepal-card.active::-webkit-scrollbar-thumb,
+.about-popup.open::-webkit-scrollbar-thumb {
   background: #ffffff;
   border-radius: 999px;
   border: 2px solid rgba(70, 70, 220, 0.65);
@@ -370,22 +389,20 @@ body {
     0 0 10px rgba(255, 255, 255, 0.55);
 }
 
-.nepal-card.active::-webkit-scrollbar-thumb:hover {
+.nepal-card.active::-webkit-scrollbar-thumb:hover,
+.about-popup.open::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.92);
   box-shadow:
     inset 0 0 5px rgba(0, 0, 0, 0.35),
     0 0 14px rgba(255, 255, 255, 0.8);
 }
 
-.nepal-card.active::-webkit-scrollbar-corner {
-  background: transparent;
-}
-
 .close-card {
   display: none;
 }
 
-.nepal-card.active .close-card {
+.nepal-card.active .close-card,
+.about-popup.open .about-close {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -418,7 +435,8 @@ body {
     color 0.25s ease;
 }
 
-.nepal-card.active .close-card:hover {
+.nepal-card.active .close-card:hover,
+.about-popup.open .about-close:hover {
   transform: scale(1.15) rotate(90deg);
   background: #111;
   color: white;
@@ -1025,14 +1043,16 @@ body {
     right: 5%;
   }
 
-  .nepal-card.active {
+  .nepal-card.active,
+  .about-popup.open {
     width: 88vw;
     height: 62vh;
     padding: 50px 28px 42px;
     border-radius: 38px;
   }
 
-  .nepal-card.active .close-card {
+  .nepal-card.active .close-card,
+  .about-popup.open .about-close {
     top: 15px;
     right: 18px;
     width: 38px;
@@ -1104,13 +1124,15 @@ body {
     font-size: 0.85rem;
   }
 
-  .nepal-card.active {
+  .nepal-card.active,
+  .about-popup.open {
     width: 92vw;
     height: 68vh;
     padding: 55px 22px 35px;
   }
 
-  .nepal-card.active p {
+  .nepal-card.active p,
+  .about-popup.open p {
     line-height: 1.6;
   }
 

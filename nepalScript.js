@@ -8,6 +8,10 @@ const anthemAudio = document.getElementById("anthemAudio");
 const menuButton = document.getElementById("menuButton");
 const sideMenu = document.getElementById("sideMenu");
 
+const aboutLink = document.getElementById("aboutLink");
+const aboutPopup = document.getElementById("aboutPopup");
+const aboutClose = document.getElementById("aboutClose");
+
 const inquiryForm = document.getElementById("inquiryForm");
 const thankYouDialog = document.getElementById("thankYouDialog");
 const dialogClose = document.getElementById("dialogClose");
@@ -21,6 +25,7 @@ function openSelectedCard(card) {
   }
 
   closeMenu();
+  closeAboutPopup();
 
   openCard = card;
   card.classList.add("active");
@@ -36,7 +41,7 @@ function closeSelectedCard() {
     openCard = null;
   }
 
-  if (homePage) {
+  if (homePage && !aboutPopup?.classList.contains("open")) {
     homePage.classList.remove("card-open");
   }
 }
@@ -64,6 +69,29 @@ function toggleMenu() {
     closeMenu();
   } else {
     openMenu();
+  }
+}
+
+function openAboutPopup() {
+  closeSelectedCard();
+  closeMenu();
+
+  if (aboutPopup) {
+    aboutPopup.classList.add("open");
+  }
+
+  if (homePage) {
+    homePage.classList.add("card-open");
+  }
+}
+
+function closeAboutPopup() {
+  if (aboutPopup) {
+    aboutPopup.classList.remove("open");
+  }
+
+  if (homePage && !openCard) {
+    homePage.classList.remove("card-open");
   }
 }
 
@@ -100,6 +128,21 @@ if (menuButton) {
   });
 }
 
+if (aboutLink) {
+  aboutLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    openAboutPopup();
+  });
+}
+
+if (aboutClose) {
+  aboutClose.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    closeAboutPopup();
+  });
+}
+
 document.addEventListener("click", function (event) {
   if (
     sideMenu &&
@@ -116,6 +159,7 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSelectedCard();
     closeMenu();
+    closeAboutPopup();
     closeThankYouDialog();
   }
 });
