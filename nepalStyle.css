@@ -7,13 +7,17 @@
 html,
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
   font-family: "Oswald", Arial, sans-serif;
   overflow: hidden;
 }
+
+/* =========================
+   HOME PAGE
+========================= */
 
 .home-page {
   position: relative;
@@ -655,6 +659,354 @@ body {
   animation-delay: 3s;
 }
 
+/* =========================
+   INQUIRY PAGE
+========================= */
+
+.inquiry-page {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("bg2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.inquiry-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(20, 20, 80, 0.28),
+      rgba(0, 0, 0, 0.72)
+    ),
+    linear-gradient(
+      120deg,
+      rgba(145, 0, 0, 0.32),
+      rgba(20, 20, 120, 0.45)
+    );
+
+  backdrop-filter: blur(1.5px);
+}
+
+.back-home {
+  position: fixed;
+  top: 28px;
+  left: 32px;
+  z-index: 5;
+
+  color: white;
+  text-decoration: none;
+
+  padding: 12px 20px;
+  border-radius: 999px;
+
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(145, 0, 0, 0.9),
+    rgba(70, 70, 220, 0.95)
+  );
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.45),
+    inset 0 0 14px rgba(255, 255, 255, 0.14);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.back-home:hover {
+  transform: scale(1.07);
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.18);
+}
+
+.inquiry-card {
+  position: relative;
+  z-index: 3;
+
+  width: min(520px, 90vw);
+  padding: 42px 44px;
+
+  border-radius: 40px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(145, 0, 0, 0.75),
+    rgba(50, 45, 175, 0.78)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.7),
+    inset 0 0 28px rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  backdrop-filter: blur(8px);
+}
+
+.inquiry-card h1 {
+  font-size: clamp(2.4rem, 6vw, 4.3rem);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
+}
+
+.inquiry-subtitle {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 28px;
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.inquiry-form label {
+  font-size: 1.45rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.55);
+}
+
+.inquiry-form input,
+.inquiry-form textarea {
+  width: 100%;
+
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  outline: none;
+
+  border-radius: 18px;
+
+  padding: 15px 18px;
+
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+
+  color: white;
+
+  background: rgba(0, 0, 0, 0.28);
+
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.22),
+    0 10px 25px rgba(0, 0, 0, 0.22);
+
+  transition:
+    border 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.inquiry-form input::placeholder,
+.inquiry-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  border-color: rgba(255, 220, 90, 0.95);
+  background: rgba(0, 0, 0, 0.42);
+  transform: scale(1.02);
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(255, 220, 90, 0.45);
+}
+
+.inquiry-form textarea {
+  min-height: 150px;
+  resize: none;
+}
+
+.send-button {
+  margin-top: 14px;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 16px 26px;
+
+  cursor: pointer;
+
+  color: white;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 1.45rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 179, 0, 0.95),
+    rgba(145, 0, 0, 0.95),
+    rgba(70, 70, 220, 0.95)
+  );
+
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.45),
+    inset 0 0 16px rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.send-button:hover {
+  transform: scale(1.07);
+  box-shadow:
+    0 26px 54px rgba(0, 0, 0, 0.62),
+    inset 0 0 22px rgba(255, 255, 255, 0.22);
+}
+
+.thank-you-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease;
+}
+
+.thank-you-dialog.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.thank-you-box {
+  position: relative;
+
+  width: min(420px, 88vw);
+  padding: 42px 34px 34px;
+
+  border-radius: 32px;
+
+  text-align: center;
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    rgba(145, 0, 0, 0.96),
+    rgba(70, 70, 220, 0.96)
+  );
+
+  box-shadow:
+    0 35px 85px rgba(0, 0, 0, 0.75),
+    inset 0 0 24px rgba(255, 255, 255, 0.15);
+
+  transform: scale(0.85);
+
+  transition:
+    transform 0.3s ease;
+}
+
+.thank-you-dialog.show .thank-you-box {
+  transform: scale(1);
+}
+
+.thank-you-box h2 {
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.thank-you-box p {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: white;
+  color: #7b0000;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.dialog-close:hover {
+  transform: scale(1.15) rotate(90deg);
+  background: #111;
+  color: white;
+}
+
+.dialog-ok {
+  border: none;
+  border-radius: 999px;
+
+  padding: 12px 34px;
+
+  cursor: pointer;
+
+  color: white;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    inset 0 0 12px rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.dialog-ok:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.28);
+}
+
 @keyframes windMove {
   0% {
     transform: translateX(0);
@@ -749,6 +1101,10 @@ body {
     font-size: 1.15rem;
     bottom: 24px;
   }
+
+  .inquiry-card {
+    padding: 36px 30px;
+  }
 }
 
 /* Phone */
@@ -818,5 +1174,36 @@ body {
     height: 58px;
     font-size: 1rem;
     bottom: 22px;
+  }
+
+  .back-home {
+    top: 18px;
+    left: 18px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+  }
+
+  .inquiry-page {
+    padding: 80px 0 35px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .inquiry-card {
+    width: 90vw;
+    padding: 30px 22px;
+    border-radius: 30px;
+  }
+
+  .inquiry-card h1 {
+    font-size: 2.2rem;
+  }
+
+  .inquiry-form label {
+    font-size: 1.15rem;
+  }
+
+  .send-button {
+    font-size: 1.15rem;
   }
 }

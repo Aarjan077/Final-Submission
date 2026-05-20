@@ -9,6 +9,11 @@ const menuButton = document.getElementById("menuButton");
 const sideMenu = document.getElementById("sideMenu");
 const menuClose = document.getElementById("menuClose");
 
+const inquiryForm = document.getElementById("inquiryForm");
+const thankYouDialog = document.getElementById("thankYouDialog");
+const dialogClose = document.getElementById("dialogClose");
+const dialogOk = document.getElementById("dialogOk");
+
 let openCard = null;
 
 function openSelectedCard(card) {
@@ -29,24 +34,33 @@ function closeSelectedCard() {
     openCard = null;
   }
 
-  homePage.classList.remove("card-open");
+  if (homePage) {
+    homePage.classList.remove("card-open");
+  }
 }
 
 function openMenu() {
-  sideMenu.classList.add("open");
-  menuButton.classList.add("active");
+  if (sideMenu && menuButton) {
+    sideMenu.classList.add("open");
+    menuButton.classList.add("active");
+  }
 }
 
 function closeMenu() {
-  sideMenu.classList.remove("open");
-  menuButton.classList.remove("active");
+  if (sideMenu && menuButton) {
+    sideMenu.classList.remove("open");
+    menuButton.classList.remove("active");
+  }
 }
 
 function toggleMenu() {
+  if (!sideMenu) {
+    return;
+  }
+
   if (sideMenu.classList.contains("open")) {
     closeMenu();
   } else {
-    closeMenu();
     openMenu();
   }
 }
@@ -77,19 +91,25 @@ closeButtons.forEach(function (button) {
   });
 });
 
-menuButton.addEventListener("click", function (event) {
-  event.stopPropagation();
-  toggleMenu();
-});
+if (menuButton) {
+  menuButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    toggleMenu();
+  });
+}
 
-menuClose.addEventListener("click", function (event) {
-  event.preventDefault();
-  event.stopPropagation();
-  closeMenu();
-});
+if (menuClose) {
+  menuClose.addEventListener("click", function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    closeMenu();
+  });
+}
 
 document.addEventListener("click", function (event) {
   if (
+    sideMenu &&
+    menuButton &&
     sideMenu.classList.contains("open") &&
     !sideMenu.contains(event.target) &&
     !menuButton.contains(event.target)
@@ -102,32 +122,77 @@ document.addEventListener("keydown", function (event) {
   if (event.key === "Escape") {
     closeSelectedCard();
     closeMenu();
+    closeThankYouDialog();
   }
 });
 
-anthemButton.addEventListener("click", function () {
-  if (anthemAudio.paused) {
-    anthemAudio.currentTime = 0;
+if (anthemButton && anthemAudio) {
+  anthemButton.addEventListener("click", function () {
+    if (anthemAudio.paused) {
+      anthemAudio.currentTime = 0;
 
-    anthemAudio.play()
-      .then(function () {
-        anthemButton.textContent = "PAUSE ANTHEM";
-        anthemButton.classList.add("playing");
-      })
-      .catch(function () {
-        anthemButton.textContent = "NATIONAL ANTHEM";
-        anthemButton.classList.remove("playing");
-        alert("The anthem audio could not be played. Please check that nationalAnthem.mp3 is uploaded with the correct file name.");
-      });
+      anthemAudio.play()
+        .then(function () {
+          anthemButton.textContent = "PAUSE ANTHEM";
+          anthemButton.classList.add("playing");
+        })
+        .catch(function () {
+          anthemButton.textContent = "NATIONAL ANTHEM";
+          anthemButton.classList.remove("playing");
+          alert("The anthem audio could not be played. Please check that nationalAnthem.mp3 is uploaded with the correct file name.");
+        });
 
-  } else {
-    anthemAudio.pause();
+    } else {
+      anthemAudio.pause();
+      anthemButton.textContent = "NATIONAL ANTHEM";
+      anthemButton.classList.remove("playing");
+    }
+  });
+
+  anthemAudio.addEventListener("ended", function () {
     anthemButton.textContent = "NATIONAL ANTHEM";
     anthemButton.classList.remove("playing");
-  }
-});
+  });
+}
 
-anthemAudio.addEventListener("ended", function () {
-  anthemButton.textContent = "NATIONAL ANTHEM";
-  anthemButton.classList.remove("playing");
-});
+function openThankYouDialog() {
+  if (thankYouDialog) {
+    thankYouDialog.classList.add("show");
+  }
+}
+
+function closeThankYouDialog() {
+  if (thankYouDialog) {
+    thankYouDialog.classList.remove("show");
+  }
+}
+
+if (inquiryForm) {
+  inquiryForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    openThankYouDialog();
+
+    inquiryForm.reset();
+  });
+}
+
+if (dialogClose) {
+  dialogClose.addEventListener("click", function () {
+    closeThankYouDialog();
+  });
+}
+
+if (dialogOk) {
+  dialogOk.addEventListener("click", function () {
+    closeThankYouDialog();
+  });
+}
+
+if (thankYouDialog) {
+  thankYouDialog.addEventListener("click", function (event) {
+    if (event.target === thankYouDialog) {
+      closeThankYouDialog();
+    }
+  });
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Send Us an Inquiry</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="nepalStyle.css" />
+</head>
+<body>
+
+  <main class="inquiry-page">
+
+    <div class="inquiry-bg-overlay"></div>
+
+    <a href="index.html" class="back-home">← Back Home</a>
+
+    <section class="inquiry-card">
+      <h1>Send Us an Inquiry</h1>
+      <p class="inquiry-subtitle">
+        Have questions about Nepal, tourism, culture, or travel? Send us a message below.
+      </p>
+
+      <form class="inquiry-form" id="inquiryForm">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Enter your email"
+          required
+        >
+
+        <label for="message">Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          placeholder="Write your inquiry here..."
+          required
+        ></textarea>
+
+        <button type="submit" class="send-button">Send Inquiry</button>
+      </form>
+    </section>
+
+    <div class="thank-you-dialog" id="thankYouDialog">
+      <div class="thank-you-box">
+        <button class="dialog-close" id="dialogClose" type="button">X</button>
+
+        <h2>Thank You!</h2>
+        <p>
+          Thank you for your inquiry. We will reach out to you soon.
+        </p>
+
+        <button class="dialog-ok" id="dialogOk" type="button">OK</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="nepalScript.js"></script>
+</body>
+</html>
