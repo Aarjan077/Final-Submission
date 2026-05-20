@@ -15,9 +15,7 @@ body {
   overflow: hidden;
 }
 
-/* =========================
-   HOME PAGE
-========================= */
+/* HOME PAGE */
 
 .home-page {
   position: relative;
@@ -100,7 +98,6 @@ body {
   transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Slide-in navigation rectangle */
 .side-menu {
   position: fixed;
   top: 92px;
@@ -203,7 +200,6 @@ body {
   letter-spacing: 2px;
 }
 
-/* Small clickable cards */
 .nepal-card {
   position: absolute;
   width: 250px;
@@ -291,7 +287,6 @@ body {
   transform: scale(0.75);
 }
 
-/* Expanded card and About popup */
 .nepal-card.active,
 .about-popup.open {
   position: fixed;
@@ -354,12 +349,10 @@ body {
   margin-bottom: 18px;
 }
 
-/* About popup hidden by default */
 .about-popup {
   display: none;
 }
 
-/* Scrollbar */
 .nepal-card.active::-webkit-scrollbar,
 .about-popup.open::-webkit-scrollbar {
   width: 10px;
@@ -387,14 +380,6 @@ body {
   box-shadow:
     inset 0 0 4px rgba(0, 0, 0, 0.25),
     0 0 10px rgba(255, 255, 255, 0.55);
-}
-
-.nepal-card.active::-webkit-scrollbar-thumb:hover,
-.about-popup.open::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow:
-    inset 0 0 5px rgba(0, 0, 0, 0.35),
-    0 0 14px rgba(255, 255, 255, 0.8);
 }
 
 .close-card {
@@ -635,9 +620,7 @@ body {
   animation-delay: 3s;
 }
 
-/* =========================
-   INQUIRY PAGE
-========================= */
+/* INQUIRY PAGE */
 
 .inquiry-page {
   position: relative;
@@ -983,6 +966,108 @@ body {
   background: rgba(255, 255, 255, 0.28);
 }
 
+/* VIDEO PAGE */
+
+.video-page {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("bg3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.video-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(20, 20, 80, 0.18),
+      rgba(0, 0, 0, 0.78)
+    ),
+    linear-gradient(
+      120deg,
+      rgba(145, 0, 0, 0.25),
+      rgba(20, 20, 120, 0.42)
+    );
+
+  backdrop-filter: blur(1.2px);
+}
+
+.video-card {
+  position: relative;
+  z-index: 3;
+
+  width: min(1000px, 90vw);
+  padding: 36px 42px 42px;
+
+  border-radius: 42px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(145, 0, 0, 0.72),
+    rgba(50, 45, 175, 0.76)
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.72),
+    inset 0 0 28px rgba(255, 255, 255, 0.13);
+
+  color: white;
+
+  backdrop-filter: blur(8px);
+}
+
+.video-card h1 {
+  text-align: center;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
+}
+
+.video-card p {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 26px;
+  opacity: 0.9;
+}
+
+.video-frame {
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.65),
+    0 0 28px rgba(255, 255, 255, 0.18);
+}
+
+.video-frame video {
+  width: 100%;
+  max-height: 62vh;
+  display: block;
+  object-fit: contain;
+  background: black;
+}
+
 @keyframes windMove {
   0% {
     transform: translateX(0);
@@ -1080,8 +1165,13 @@ body {
     bottom: 24px;
   }
 
-  .inquiry-card {
+  .inquiry-card,
+  .video-card {
     padding: 36px 30px;
+  }
+
+  .video-frame video {
+    max-height: 55vh;
   }
 }
 
@@ -1163,19 +1253,22 @@ body {
     font-size: 0.95rem;
   }
 
-  .inquiry-page {
+  .inquiry-page,
+  .video-page {
     padding: 80px 0 35px;
     align-items: flex-start;
     overflow-y: auto;
   }
 
-  .inquiry-card {
+  .inquiry-card,
+  .video-card {
     width: 90vw;
     padding: 30px 22px;
     border-radius: 30px;
   }
 
-  .inquiry-card h1 {
+  .inquiry-card h1,
+  .video-card h1 {
     font-size: 2.2rem;
   }
 
@@ -1185,5 +1278,17 @@ body {
 
   .send-button {
     font-size: 1.15rem;
+  }
+
+  .video-card p {
+    font-size: 0.95rem;
+  }
+
+  .video-frame {
+    border-radius: 20px;
+  }
+
+  .video-frame video {
+    max-height: 45vh;
   }
 }
