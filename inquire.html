@@ -1,71 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">//language set to english
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8" />//for special characters
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />//makes page responsibe
   <title>Send Us an Inquiry</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">//connecting google fonts
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ //linking oswald font from google fonts
   <link 
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" 
     rel="stylesheet"
   >
-
-  <link rel="stylesheet" href="nepalStyle.css" />
+  <link rel="stylesheet" href="nepalStyle.css" />//linkinf external css file
 </head>
 <body>
-
-  <main class="inquiry-page">
-
-    <div class="inquiry-bg-overlay"></div>
-
-    <a href="index.html" class="back-home">← Back Home</a>
-
+  <main class="inquiry-page">//main container for the inquiry page
+    <div class="inquiry-bg-overlay"></div>//dark overlay for better readability of the form
+    <a href="index.html" class="back-home">← Back Home</a>//linnk to go back to home page
     <section class="inquiry-card">
       <h1>Send Us an Inquiry</h1>
       <p class="inquiry-subtitle">
         Have questions about Nepal, tourism, culture, or travel? Send us a message below.
-      </p>
-
+      </p>//short instruction for the user
       <form class="inquiry-form" id="inquiryForm">
         <label for="email">Email</label>
-        <input 
+        <input
           type="email" 
           id="email" 
           name="email" 
           placeholder="Enter your email"
           required
         >
-
-        <label for="message">Message</label>
+        // email input field with validation
+        <label for="message">Message</label>//label for message feild
         <textarea 
           id="message" 
           name="message" 
           placeholder="Write your inquiry here..."
           required
-        ></textarea>
-
-        <button type="submit" class="send-button">Send Inquiry</button>
+        ></textarea>//message box must be filled in
+        <button type="submit" class="send-button">Send Inquiry</button>//submit button
       </form>
     </section>
-
-    <div class="thank-you-dialog" id="thankYouDialog">
+    <div class="thank-you-dialog" id="thankYouDialog">//hidden thank you dialog
       <div class="thank-you-box">
-        <button class="dialog-close" id="dialogClose" type="button">X</button>
-
+        <button class="dialog-close" id="dialogClose" type="button">X</button>//X button to close the dialog
         <h2>Thank You!</h2>
         <p>
           Thank you for your inquiry. We will reach out to you soon.
         </p>
-
-        <button class="dialog-ok" id="dialogOk" type="button">OK</button>
+       //thank you message after form submission
+        <button class="dialog-ok" id="dialogOk" type="button">OK</button>//ok button to close the popup
       </div>
     </div>
-
   </main>
-
-  <script src="nepalScript.js"></script>
+  <script src="nepalScript.js"></script>//linking external js file
 </body>
 </html>

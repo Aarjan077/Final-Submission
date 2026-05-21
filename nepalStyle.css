@@ -3,33 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html,
 body {
   width: 100%;
   min-height: 100%;
 }
-
 body {
   font-family: "Oswald", Arial, sans-serif;
   overflow: hidden;
 }
-
 /* HOME PAGE */
-
 .home-page {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
   border: 5px solid #111;
-
   background-image: url("bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .dark-overlay {
   position: absolute;
   inset: 0;
@@ -42,140 +36,107 @@ body {
   position: fixed;
   top: 28px;
   right: 32px;
-
   width: 58px;
   height: 50px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 7px;
-
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 14px;
-
   background: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 40;
-
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-
   transition:
     transform 0.3s ease,
     background 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 .menu-button span {
   width: 30px;
   height: 4px;
   border-radius: 999px;
   background: white;
-
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
-
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
 }
-
 .menu-button:hover {
   transform: scale(1.08);
   background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
 }
-
 .menu-button.active span:nth-child(1) {
   transform: translateY(11px) rotate(45deg);
 }
-
 .menu-button.active span:nth-child(2) {
   opacity: 0;
 }
-
 .menu-button.active span:nth-child(3) {
   transform: translateY(-11px) rotate(-45deg);
 }
-
 .side-menu {
   position: fixed;
   top: 92px;
   right: 32px;
-
   width: 230px;
   padding: 38px 22px 28px;
-
   display: flex;
   flex-direction: column;
   gap: 22px;
-
   border-radius: 28px;
-
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.96),
     rgba(245, 245, 255, 0.88)
   );
-
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.55),
     inset 0 0 14px rgba(255, 255, 255, 0.8);
-
   z-index: 39;
-
   transform: translateX(130%);
   opacity: 0;
   pointer-events: none;
-
   transition:
     transform 0.4s ease,
     opacity 0.3s ease;
 }
-
 .side-menu.open {
   transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
 }
-
 .menu-link {
   display: block;
-
   padding: 18px 18px;
-
   border-radius: 999px;
-
   color: white;
   text-decoration: none;
   text-align: center;
-
   font-size: 1.25rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   background: linear-gradient(
     120deg,
     rgba(145, 0, 0, 0.9),
     rgba(70, 70, 220, 0.95)
   );
-
   box-shadow:
     0 10px 22px rgba(0, 0, 0, 0.28),
     inset 0 0 12px rgba(255, 255, 255, 0.16);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .menu-link:hover {
   transform: translateX(-6px) scale(1.04);
   box-shadow:
     0 16px 32px rgba(0, 0, 0, 0.4),
     inset 0 0 18px rgba(255, 255, 255, 0.2);
 }
-
 .title-area {
   position: absolute;
   top: 45%;
@@ -187,48 +148,38 @@ body {
   pointer-events: none;
   text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
-
 .title-area h1 {
   font-size: clamp(3.5rem, 8vw, 7rem);
   text-transform: uppercase;
   letter-spacing: 5px;
 }
-
 .title-area p {
   margin-top: 15px;
   font-size: clamp(1rem, 2vw, 1.5rem);
   letter-spacing: 2px;
 }
-
 .nepal-card {
   position: absolute;
   width: 250px;
   height: 82px;
   padding: 0 25px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 999px;
   cursor: pointer;
   z-index: 5;
-
   color: white;
   text-align: center;
-
   background: linear-gradient(
     120deg,
     rgba(145, 0, 0, 0.85),
     rgba(70, 70, 220, 0.9)
   );
-
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.45),
     inset 0 0 18px rgba(255, 255, 255, 0.15);
-
   overflow: hidden;
-
   transition:
     top 0.55s ease,
     left 0.55s ease,
@@ -242,93 +193,73 @@ body {
     opacity 0.3s ease,
     box-shadow 0.3s ease;
 }
-
 .nepal-card h2 {
   font-size: 1.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1.1;
 }
-
 .nepal-card:not(.active) > *:not(h2) {
   display: none !important;
 }
-
 .nepal-card:hover {
   transform: scale(1.12);
   box-shadow:
     0 28px 55px rgba(0, 0, 0, 0.6),
     inset 0 0 25px rgba(255, 255, 255, 0.18);
 }
-
 .top-left {
   top: 11%;
   left: 7%;
 }
-
 .top-right {
   top: 11%;
   right: 7%;
 }
-
 .bottom-left {
   bottom: 13%;
   left: 7%;
 }
-
 .bottom-right {
   bottom: 13%;
   right: 7%;
 }
-
 .home-page.card-open .nepal-card:not(.active) {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.75);
 }
-
 .nepal-card.active,
 .about-popup.open {
   position: fixed;
-
   top: 50%;
   left: 50%;
   right: auto;
   bottom: auto;
-
   width: min(900px, 78vw);
   height: 60vh;
   padding: 60px 65px;
-
   display: block;
   text-align: left;
-
   border-radius: 55px;
   cursor: default;
   z-index: 20;
-
   transform: translate(-50%, -50%);
-
   background: linear-gradient(
     120deg,
     rgba(145, 0, 0, 0.96),
     rgba(70, 70, 220, 0.97)
   );
-
   box-shadow:
     0 35px 90px rgba(0, 0, 0, 0.7),
     inset 0 0 30px rgba(255, 255, 255, 0.15);
-
   overflow-y: auto;
-
   scrollbar-width: thin;
   scrollbar-color: #ffffff rgba(255, 255, 255, 0.18);
 }
-
 .nepal-card.active:hover {
   transform: translate(-50%, -50%);
 }
-
 .nepal-card.active h2,
 .about-popup.open h2 {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
@@ -337,7 +268,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 .nepal-card.active p,
 .about-popup.open p {
   display: block;
@@ -348,30 +278,25 @@ body {
   color: white;
   margin-bottom: 18px;
 }
-
 .about-popup {
   display: none;
 }
-
 .nepal-card.active::-webkit-scrollbar,
 .about-popup.open::-webkit-scrollbar {
   width: 10px;
 }
-
 .nepal-card.active::-webkit-scrollbar-button,
 .about-popup.open::-webkit-scrollbar-button {
   display: none;
   width: 0;
   height: 0;
 }
-
 .nepal-card.active::-webkit-scrollbar-track,
 .about-popup.open::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.18);
   border-radius: 999px;
   margin: 48px 8px 35px 0;
 }
-
 .nepal-card.active::-webkit-scrollbar-thumb,
 .about-popup.open::-webkit-scrollbar-thumb {
   background: #ffffff;
@@ -381,85 +306,67 @@ body {
     inset 0 0 4px rgba(0, 0, 0, 0.25),
     0 0 10px rgba(255, 255, 255, 0.55);
 }
-
 .close-card {
   display: none;
 }
-
 .nepal-card.active .close-card,
 .about-popup.open .about-close {
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: absolute;
   top: 22px;
   right: 28px;
-
   width: 42px;
   height: 42px;
-
   border: none;
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.92);
   color: #7b0000;
-
   font-family: Arial, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-
   cursor: pointer;
   z-index: 50;
-
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     color 0.25s ease;
 }
-
 .nepal-card.active .close-card:hover,
 .about-popup.open .about-close:hover {
   transform: scale(1.15) rotate(90deg);
   background: #111;
   color: white;
 }
-
 .map-card.active {
   height: 72vh;
 }
-
 .map-card.active .map-content {
   display: block;
   text-align: center;
   margin-bottom: 18px;
 }
-
 .map-card.active img {
   width: min(600px, 100%);
   max-height: 350px;
   object-fit: contain;
   display: block;
   margin: 0 auto 10px;
-
   background: transparent;
   padding: 0;
   border-radius: 0;
   box-shadow: none;
   filter: none;
-
   transition:
     transform 0.35s ease,
     filter 0.35s ease;
 }
-
 .map-card.active img:hover {
   transform: scale(1.07) rotate(-1deg);
   filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.55));
 }
-
 .map-card.active .map-caption {
   display: block;
   font-family: Arial, sans-serif;
@@ -470,56 +377,46 @@ body {
   margin-bottom: 18px;
   color: white;
 }
-
 .map-card.active .map-description {
   display: block;
 }
-
 .anthem-button {
   position: fixed;
   left: 50%;
   bottom: 32px;
   transform: translateX(-50%);
-
   width: 280px;
   height: 72px;
   padding: 0 28px;
-
   border: none;
   border-radius: 999px;
   cursor: pointer;
   z-index: 10;
-
   color: white;
   text-align: center;
   font-family: "Oswald", Arial, sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: 2px;
-
   background: linear-gradient(
     120deg,
     rgba(145, 0, 0, 0.85),
     rgba(70, 70, 220, 0.9)
   );
-
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.45),
     inset 0 0 18px rgba(255, 255, 255, 0.15);
-
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease,
     opacity 0.3s ease;
 }
-
 .anthem-button:hover {
   transform: translateX(-50%) scale(1.12);
   box-shadow:
     0 28px 55px rgba(0, 0, 0, 0.6),
     inset 0 0 25px rgba(255, 255, 255, 0.18);
 }
-
 .anthem-button.playing {
   background: linear-gradient(
     120deg,
@@ -527,25 +424,21 @@ body {
     rgba(145, 0, 0, 0.95)
   );
 }
-
 .home-page.card-open .anthem-button {
   opacity: 0;
   pointer-events: none;
 }
-
 .paper-plane {
   position: absolute;
   top: 35%;
   left: -100px;
   z-index: 2;
-
   font-size: 3rem;
   color: white;
   text-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
 
   animation: flyPlane 9s linear infinite;
 }
-
 @keyframes flyPlane {
   0% {
     left: -100px;
@@ -571,7 +464,6 @@ body {
     opacity: 0;
   }
 }
-
 .wind {
   position: absolute;
   left: -200px;
@@ -579,11 +471,9 @@ body {
   height: 4px;
   border-radius: 999px;
   z-index: 2;
-
   background: rgba(255, 255, 255, 0.7);
   animation: windMove 5.5s linear infinite;
 }
-
 .wind::before,
 .wind::after {
   content: "";
@@ -592,57 +482,46 @@ body {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.45);
 }
-
 .wind::before {
   width: 70px;
   top: -13px;
   left: 25px;
 }
-
 .wind::after {
   width: 95px;
   top: 14px;
   left: 45px;
 }
-
 .wind-1 {
   top: 25%;
   animation-delay: 0s;
 }
-
 .wind-2 {
   top: 50%;
   animation-delay: 1.5s;
 }
-
 .wind-3 {
   top: 75%;
   animation-delay: 3s;
 }
-
 /* INQUIRY PAGE */
-
 .inquiry-page {
   position: relative;
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-image: url("bg2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .inquiry-bg-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-
   background:
     radial-gradient(
       circle at center,
@@ -654,83 +533,63 @@ body {
       rgba(145, 0, 0, 0.32),
       rgba(20, 20, 120, 0.45)
     );
-
   backdrop-filter: blur(1.5px);
 }
-
 .back-home {
   position: fixed;
   top: 28px;
   left: 32px;
   z-index: 5;
-
   color: white;
   text-decoration: none;
-
   padding: 12px 20px;
   border-radius: 999px;
-
   font-size: 1.1rem;
   letter-spacing: 1px;
-
   background: linear-gradient(
     120deg,
     rgba(145, 0, 0, 0.9),
     rgba(70, 70, 220, 0.95)
   );
-
   box-shadow:
     0 14px 34px rgba(0, 0, 0, 0.45),
     inset 0 0 14px rgba(255, 255, 255, 0.14);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .back-home:hover {
   transform: scale(1.07);
   box-shadow:
     0 20px 44px rgba(0, 0, 0, 0.6),
     inset 0 0 20px rgba(255, 255, 255, 0.18);
 }
-
 .inquiry-card {
   position: relative;
   z-index: 3;
-
   width: min(520px, 90vw);
   padding: 42px 44px;
-
   border-radius: 40px;
-
   background: linear-gradient(
     145deg,
     rgba(145, 0, 0, 0.75),
     rgba(50, 45, 175, 0.78)
   );
-
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   box-shadow:
     0 35px 90px rgba(0, 0, 0, 0.7),
     inset 0 0 28px rgba(255, 255, 255, 0.12);
-
   color: white;
-
   backdrop-filter: blur(8px);
 }
-
 .inquiry-card h1 {
   font-size: clamp(2.4rem, 6vw, 4.3rem);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 14px;
-
   text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
 }
-
 .inquiry-subtitle {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -738,54 +597,41 @@ body {
   opacity: 0.9;
   margin-bottom: 28px;
 }
-
 .inquiry-form {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-
 .inquiry-form label {
   font-size: 1.45rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 5px 14px rgba(0, 0, 0, 0.55);
 }
-
 .inquiry-form input,
 .inquiry-form textarea {
   width: 100%;
-
   border: 2px solid rgba(255, 255, 255, 0.5);
   outline: none;
-
   border-radius: 18px;
-
   padding: 15px 18px;
-
   font-family: Arial, sans-serif;
   font-size: 1rem;
-
   color: white;
-
   background: rgba(0, 0, 0, 0.28);
-
   box-shadow:
     inset 0 0 18px rgba(0, 0, 0, 0.22),
     0 10px 25px rgba(0, 0, 0, 0.22);
-
   transition:
     border 0.25s ease,
     background 0.25s ease,
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .inquiry-form input::placeholder,
 .inquiry-form textarea::placeholder {
   color: rgba(255, 255, 255, 0.72);
 }
-
 .inquiry-form input:focus,
 .inquiry-form textarea:focus {
   border-color: rgba(255, 220, 90, 0.95);
@@ -795,200 +641,152 @@ body {
     inset 0 0 18px rgba(0, 0, 0, 0.28),
     0 0 18px rgba(255, 220, 90, 0.45);
 }
-
 .inquiry-form textarea {
   min-height: 150px;
   resize: none;
 }
-
 .send-button {
   margin-top: 14px;
-
   border: none;
   border-radius: 999px;
-
   padding: 16px 26px;
-
   cursor: pointer;
-
   color: white;
   font-family: "Oswald", Arial, sans-serif;
   font-size: 1.45rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-
   background: linear-gradient(
     120deg,
     rgba(255, 179, 0, 0.95),
     rgba(145, 0, 0, 0.95),
     rgba(70, 70, 220, 0.95)
   );
-
   box-shadow:
     0 18px 38px rgba(0, 0, 0, 0.45),
     inset 0 0 16px rgba(255, 255, 255, 0.18);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .send-button:hover {
   transform: scale(1.07);
   box-shadow:
     0 26px 54px rgba(0, 0, 0, 0.62),
     inset 0 0 22px rgba(255, 255, 255, 0.22);
 }
-
 .thank-you-dialog {
   position: fixed;
   inset: 0;
   z-index: 50;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(0, 0, 0, 0.55);
-
   opacity: 0;
   pointer-events: none;
-
   transition:
     opacity 0.3s ease;
 }
-
 .thank-you-dialog.show {
   opacity: 1;
   pointer-events: auto;
 }
-
 .thank-you-box {
   position: relative;
-
   width: min(420px, 88vw);
   padding: 42px 34px 34px;
-
   border-radius: 32px;
-
   text-align: center;
   color: white;
-
   background: linear-gradient(
     135deg,
     rgba(145, 0, 0, 0.96),
     rgba(70, 70, 220, 0.96)
   );
-
   box-shadow:
     0 35px 85px rgba(0, 0, 0, 0.75),
     inset 0 0 24px rgba(255, 255, 255, 0.15);
-
   transform: scale(0.85);
-
   transition:
     transform 0.3s ease;
 }
-
 .thank-you-dialog.show .thank-you-box {
   transform: scale(1);
 }
-
 .thank-you-box h2 {
   font-size: 2.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 14px;
 }
-
 .thank-you-box p {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   font-size: 1.1rem;
   margin-bottom: 24px;
 }
-
 .dialog-close {
   position: absolute;
   top: 14px;
   right: 16px;
-
   width: 34px;
   height: 34px;
-
   border: none;
   border-radius: 50%;
-
   background: white;
   color: #7b0000;
-
   font-weight: bold;
   cursor: pointer;
-
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     color 0.25s ease;
 }
-
 .dialog-close:hover {
   transform: scale(1.15) rotate(90deg);
   background: #111;
   color: white;
 }
-
 .dialog-ok {
   border: none;
   border-radius: 999px;
-
   padding: 12px 34px;
-
   cursor: pointer;
-
   color: white;
   font-family: "Oswald", Arial, sans-serif;
   font-size: 1.15rem;
   letter-spacing: 1px;
-
   background: rgba(255, 255, 255, 0.18);
-
   box-shadow:
     0 12px 28px rgba(0, 0, 0, 0.35),
     inset 0 0 12px rgba(255, 255, 255, 0.18);
-
   transition:
     transform 0.25s ease,
     background 0.25s ease;
 }
-
 .dialog-ok:hover {
   transform: scale(1.08);
   background: rgba(255, 255, 255, 0.28);
 }
-
 /* VIDEO PAGE */
-
 .video-page {
   position: relative;
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background-image: url("bg3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .video-bg-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-
   background:
     radial-gradient(
       circle at center,
@@ -1000,36 +798,26 @@ body {
       rgba(145, 0, 0, 0.25),
       rgba(20, 20, 120, 0.42)
     );
-
   backdrop-filter: blur(1.2px);
 }
-
 .video-card {
   position: relative;
   z-index: 3;
-
   width: min(1000px, 90vw);
   padding: 36px 42px 42px;
-
   border-radius: 42px;
-
   background: linear-gradient(
     145deg,
     rgba(145, 0, 0, 0.72),
     rgba(50, 45, 175, 0.76)
   );
-
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   box-shadow:
     0 35px 90px rgba(0, 0, 0, 0.72),
     inset 0 0 28px rgba(255, 255, 255, 0.13);
-
   color: white;
-
   backdrop-filter: blur(8px);
 }
-
 .video-card h1 {
   text-align: center;
   font-size: clamp(2.5rem, 6vw, 5rem);
@@ -1038,7 +826,6 @@ body {
   margin-bottom: 10px;
   text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
 }
-
 .video-card p {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -1047,19 +834,15 @@ body {
   margin-bottom: 26px;
   opacity: 0.9;
 }
-
 .video-frame {
   width: 100%;
   border-radius: 30px;
   overflow: hidden;
-
   background: rgba(0, 0, 0, 0.5);
-
   box-shadow:
     0 28px 65px rgba(0, 0, 0, 0.65),
     0 0 28px rgba(255, 255, 255, 0.18);
 }
-
 .video-frame video {
   width: 100%;
   max-height: 62vh;
@@ -1067,7 +850,6 @@ body {
   object-fit: contain;
   background: black;
 }
-
 .video-credit {
   margin-top: 18px;
   margin-bottom: 0 !important;
@@ -1075,23 +857,19 @@ body {
   opacity: 0.8;
   letter-spacing: 1px;
 }
-
 @keyframes windMove {
   0% {
     transform: translateX(0);
     opacity: 0;
   }
-
   15% {
     opacity: 1;
   }
-
   100% {
     transform: translateX(135vw);
     opacity: 0;
   }
 }
-
 /* Tablet */
 @media (max-width: 850px) {
   .menu-button {
@@ -1100,42 +878,34 @@ body {
     width: 52px;
     height: 46px;
   }
-
   .side-menu {
     top: 78px;
     right: 22px;
     width: 210px;
   }
-
   .nepal-card {
     width: 165px;
     height: 60px;
   }
-
   .nepal-card h2 {
     font-size: 1rem;
   }
-
   .top-left {
     top: 8%;
     left: 5%;
   }
-
   .top-right {
     top: 8%;
     right: 5%;
   }
-
   .bottom-left {
     bottom: 8%;
     left: 5%;
   }
-
   .bottom-right {
     bottom: 8%;
     right: 5%;
   }
-
   .nepal-card.active,
   .about-popup.open {
     width: 88vw;
@@ -1143,7 +913,6 @@ body {
     padding: 50px 28px 42px;
     border-radius: 38px;
   }
-
   .nepal-card.active .close-card,
   .about-popup.open .about-close {
     top: 15px;
@@ -1152,150 +921,122 @@ body {
     height: 38px;
     font-size: 1rem;
   }
-
   .map-card.active {
     height: 75vh;
   }
-
   .map-card.active img {
     max-height: 260px;
     padding: 0;
   }
-
   .map-card.active .map-caption {
     font-size: 1.25rem;
   }
-
   .anthem-button {
     width: 235px;
     height: 62px;
     font-size: 1.15rem;
     bottom: 24px;
   }
-
   .inquiry-card,
   .video-card {
     padding: 36px 30px;
   }
-
   .video-frame video {
     max-height: 55vh;
   }
 }
-
 /* Phone */
 @media (max-width: 500px) {
   .title-area {
     width: 90%;
   }
-
   .menu-button {
     top: 18px;
     right: 18px;
     width: 48px;
     height: 44px;
   }
-
   .menu-button span {
     width: 26px;
     height: 3px;
   }
-
   .side-menu {
     top: 72px;
     right: 18px;
     width: 190px;
     padding: 30px 16px 22px;
   }
-
   .menu-link {
     font-size: 1rem;
     padding: 14px 14px;
   }
-
   .nepal-card {
     width: 145px;
     height: 52px;
   }
-
   .nepal-card h2 {
     font-size: 0.85rem;
   }
-
   .nepal-card.active,
   .about-popup.open {
     width: 92vw;
     height: 68vh;
     padding: 55px 22px 35px;
   }
-
   .nepal-card.active p,
   .about-popup.open p {
     line-height: 1.6;
   }
-
   .map-card.active {
     height: 78vh;
   }
-
   .map-card.active img {
     max-height: 220px;
     padding: 0;
   }
-
   .map-card.active .map-caption {
     font-size: 1.1rem;
   }
-
   .anthem-button {
     width: 220px;
     height: 58px;
     font-size: 1rem;
     bottom: 22px;
   }
-
   .back-home {
     top: 18px;
     left: 18px;
     padding: 10px 16px;
     font-size: 0.95rem;
   }
-
   .inquiry-page,
   .video-page {
     padding: 80px 0 35px;
     align-items: flex-start;
     overflow-y: auto;
   }
-
   .inquiry-card,
   .video-card {
     width: 90vw;
     padding: 30px 22px;
     border-radius: 30px;
   }
-
   .inquiry-card h1,
   .video-card h1 {
     font-size: 2.2rem;
   }
-
   .inquiry-form label {
     font-size: 1.15rem;
   }
-
   .send-button {
     font-size: 1.15rem;
   }
-
   .video-card p {
     font-size: 0.95rem;
   }
-
   .video-frame {
     border-radius: 20px;
   }
-
   .video-frame video {
     max-height: 45vh;
   }

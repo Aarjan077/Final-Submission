@@ -1,48 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">//language set to english
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta charset="UTF-8" />//for special characters
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />//making page responsive on different screen
   <title>Beauty of Nepal</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">//connecting google fonts
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  //importing oswald font from google fonts
   <link 
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" 
     rel="stylesheet"
   >
-
-  <link rel="stylesheet" href="nepalStyle.css" />
+  <link rel="stylesheet" href="nepalStyle.css" />//linking external css file
 </head>
 <body>
-
-  <main class="video-page">
-
-    <div class="video-bg-overlay"></div>
-
-    <a href="index.html" class="back-home">← Back Home</a>
-
+  <main class="video-page">//main video page with background image
+    <div class="video-bg-overlay"></div>//dark overlay for better text visibility
+    <a href="index.html" class="back-home">← Back Home</a>//linking back to home page
     <section class="video-card">
       <h1>Beauty of Nepal</h1>
-
       <p>
         Watch this video to experience Nepal’s mountains, culture, nature, and breathtaking beauty.
-      </p>
-
-      <div class="video-frame">
+      </p>//short message about the video
+      <div class="video-frame">//container around the video player
         <video controls poster="bg3.png">
-          <source src="beautyNepal.mp4" type="video/mp4">
+          <source src="beautyNepal.mp4" type="video/mp4">//video file from github project folder
           Your browser does not support the video tag.
         </video>
       </div>
-
       <p class="video-credit">
-        CC: YouTube / @SergiMartínezMiró
+        CC: YouTube / @SergiMartínezMiró//copyright credit given for the video souce
       </p>
     </section>
-
   </main>
-
 </body>
 </html>
