@@ -1,19 +1,19 @@
 * {
-  margin: 0;
+  margin: 0;/* Reset default browser spacing and make sizing easier to control */
   padding: 0;
   box-sizing: border-box;
 }
-html,
+html,/* Set full page width and minimum page height */
 body {
   width: 100%;
   min-height: 100%;
 }
-body {
+body {/* Main body styling for the whole website */
   font-family: "Oswald", Arial, sans-serif;
   overflow: hidden;
 }
-/* HOME PAGE */
-.home-page {
+.home-page {/* HOME PAGE */
+/* Main homepage container with background image */
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -25,14 +25,12 @@ body {
   background-repeat: no-repeat;
 }
 .dark-overlay {
-  position: absolute;
+  position: absolute;/* Dark overlayover the homepage background */
   inset: 0;
   background: rgba(0, 0, 0, 0.35);
   z-index: 1;
 }
-
-/* Navigation menu button */
-.menu-button {
+.menu-button {/* Navigation menu button */
   position: fixed;
   top: 28px;
   right: 32px;
@@ -55,7 +53,7 @@ body {
     box-shadow 0.3s ease;
 }
 .menu-button span {
-  width: 30px;
+  width: 30px;/* White lines inside the navigation menu button */
   height: 4px;
   border-radius: 999px;
   background: white;
@@ -65,20 +63,20 @@ body {
     opacity 0.3s ease;
 }
 .menu-button:hover {
-  transform: scale(1.08);
+  transform: scale(1.08);/* Hover effect for the navigation menu button */
   background: rgba(255, 255, 255, 0.18);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.55);
 }
 .menu-button.active span:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
+  transform: translateY(11px) rotate(45deg);/* First menu line turns into part of an X when active */
 }
 .menu-button.active span:nth-child(2) {
-  opacity: 0;
+  opacity: 0;/* Middle menu line disappears when active */
 }
 .menu-button.active span:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);/* Third menu line turns into part of an X when active */
 }
-.side-menu {
+.side-menu {/* Slide-in side navigation menu */
   position: fixed;
   top: 92px;
   right: 32px;
@@ -104,12 +102,12 @@ body {
     transform 0.4s ease,
     opacity 0.3s ease;
 }
-.side-menu.open {
+.side-menu.open {/* Shows the side menu when open class is added */
   transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
 }
-.menu-link {
+.menu-link {/* Navigation menu links */
   display: block;
   padding: 18px 18px;
   border-radius: 999px;
@@ -133,12 +131,12 @@ body {
 }
 .menu-link:hover {
   transform: translateX(-6px) scale(1.04);
-  box-shadow:
+  box-shadow:/* Hover effect for navigation links */
     0 16px 32px rgba(0, 0, 0, 0.4),
     inset 0 0 18px rgba(255, 255, 255, 0.2);
 }
 .title-area {
-  position: absolute;
+  position: absolute;/* Homepage title area */
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -148,17 +146,17 @@ body {
   pointer-events: none;
   text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
-.title-area h1 {
+.title-area h1 {/* Homepage title area */
   font-size: clamp(3.5rem, 8vw, 7rem);
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 .title-area p {
-  margin-top: 15px;
+  margin-top: 15px;/* Homepage subtitle */
   font-size: clamp(1rem, 2vw, 1.5rem);
   letter-spacing: 2px;
 }
-.nepal-card {
+.nepal-card {/* Small clickable Nepal information cards */
   position: absolute;
   width: 250px;
   height: 82px;
@@ -194,44 +192,46 @@ body {
     box-shadow 0.3s ease;
 }
 .nepal-card h2 {
-  font-size: 1.8rem;
+  font-size: 1.8rem;/* Heading inside small cards */
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1.1;
 }
 .nepal-card:not(.active) > *:not(h2) {
-  display: none !important;
+  display: none !important;/* Hides card content before the card is opened */
 }
 .nepal-card:hover {
-  transform: scale(1.12);
+  transform: scale(1.12);/* Hover effect for small cards */
   box-shadow:
     0 28px 55px rgba(0, 0, 0, 0.6),
     inset 0 0 25px rgba(255, 255, 255, 0.18);
 }
-.top-left {
+.top-left {/* Positions the Tourism card */
   top: 11%;
   left: 7%;
 }
-.top-right {
+.top-right {/* Positions the Map card */
   top: 11%;
   right: 7%;
 }
-.bottom-left {
+.bottom-left {/* Positions the Current Affairs card */
   bottom: 13%;
   left: 7%;
 }
+/* Positions the Regions card */
 .bottom-right {
   bottom: 13%;
   right: 7%;
 }
+
 .home-page.card-open .nepal-card:not(.active) {
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.75);
+  transform: scale(0.75);/* Hides inactive cards when one card is opened */
 }
 .nepal-card.active,
 .about-popup.open {
-  position: fixed;
+  position: fixed;/* Expanded card and About popup styling */
   top: 50%;
   left: 50%;
   right: auto;
@@ -257,17 +257,19 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #ffffff rgba(255, 255, 255, 0.18);
 }
+/* Keeps expanded cards centered even when hovered */
 .nepal-card.active:hover {
   transform: translate(-50%, -50%);
 }
 .nepal-card.active h2,
-.about-popup.open h2 {
+.about-popup.open h2 {/* Heading style for expanded cards and About popup */
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   margin-bottom: 25px;
   color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
+/* Paragraph style for expanded cards and About popup */
 .nepal-card.active p,
 .about-popup.open p {
   display: block;
@@ -279,12 +281,13 @@ body {
   margin-bottom: 18px;
 }
 .about-popup {
-  display: none;
+  display: none;/* Hides About popup by default */
 }
 .nepal-card.active::-webkit-scrollbar,
 .about-popup.open::-webkit-scrollbar {
-  width: 10px;
+  width: 10px;/* Scrollbar width for opened cards and About popup */
 }
+/* Removes scrollbar arrow buttons */
 .nepal-card.active::-webkit-scrollbar-button,
 .about-popup.open::-webkit-scrollbar-button {
   display: none;
@@ -292,7 +295,7 @@ body {
   height: 0;
 }
 .nepal-card.active::-webkit-scrollbar-track,
-.about-popup.open::-webkit-scrollbar-track {
+.about-popup.open::-webkit-scrollbar-track {/* Scrollbar track styling */
   background: rgba(255, 255, 255, 0.18);
   border-radius: 999px;
   margin: 48px 8px 35px 0;
@@ -300,17 +303,17 @@ body {
 .nepal-card.active::-webkit-scrollbar-thumb,
 .about-popup.open::-webkit-scrollbar-thumb {
   background: #ffffff;
-  border-radius: 999px;
+  border-radius: 999px;/* Scrollbar thumb styling */
   border: 2px solid rgba(70, 70, 220, 0.65);
   box-shadow:
     inset 0 0 4px rgba(0, 0, 0, 0.25),
     0 0 10px rgba(255, 255, 255, 0.55);
 }
 .close-card {
-  display: none;
+  display: none;/* Hides card close buttons before cards open */
 }
 .nepal-card.active .close-card,
-.about-popup.open .about-close {
+.about-popup.open .about-close {/* X close button for opened cards and About popup */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -336,21 +339,21 @@ body {
 }
 .nepal-card.active .close-card:hover,
 .about-popup.open .about-close:hover {
-  transform: scale(1.15) rotate(90deg);
+  transform: scale(1.15) rotate(90deg);/* Hover effect for X close buttons */
   background: #111;
   color: white;
 }
 .map-card.active {
-  height: 72vh;
+  height: 72vh;/* Expanded map card height */
 }
 .map-card.active .map-content {
   display: block;
-  text-align: center;
+  text-align: center;/* Map content container */
   margin-bottom: 18px;
 }
 .map-card.active img {
   width: min(600px, 100%);
-  max-height: 350px;
+  max-height: 350px;/* Map image styling */
   object-fit: contain;
   display: block;
   margin: 0 auto 10px;
@@ -364,9 +367,10 @@ body {
     filter 0.35s ease;
 }
 .map-card.active img:hover {
-  transform: scale(1.07) rotate(-1deg);
+  transform: scale(1.07) rotate(-1deg);/* Hover effect for map image */
   filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.55));
 }
+/* Map caption styling */
 .map-card.active .map-caption {
   display: block;
   font-family: Arial, sans-serif;
@@ -378,8 +382,9 @@ body {
   color: white;
 }
 .map-card.active .map-description {
-  display: block;
+  display: block;/* map description display */
 }
+/* national anthem button */
 .anthem-button {
   position: fixed;
   left: 50%;
@@ -415,19 +420,20 @@ body {
   transform: translateX(-50%) scale(1.12);
   box-shadow:
     0 28px 55px rgba(0, 0, 0, 0.6),
-    inset 0 0 25px rgba(255, 255, 255, 0.18);
+    inset 0 0 25px rgba(255, 255, 255, 0.18);/* Hover effect for national anthem button */
 }
 .anthem-button.playing {
   background: linear-gradient(
-    120deg,
+    120deg,/* Styling while anthem is playing */
     rgba(70, 70, 220, 0.95),
     rgba(145, 0, 0, 0.95)
   );
 }
 .home-page.card-open .anthem-button {
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none;/* Hides anthem button when a card or popup is open */
 }
+/* Animated paper plane */
 .paper-plane {
   position: absolute;
   top: 35%;
@@ -439,7 +445,7 @@ body {
 
   animation: flyPlane 9s linear infinite;
 }
-@keyframes flyPlane {
+@keyframes flyPlane {/* Paper plane movement animation */
   0% {
     left: -100px;
     transform: translateY(0) rotate(8deg);
@@ -464,7 +470,7 @@ body {
     opacity: 0;
   }
 }
-.wind {
+.wind {/* Wind line styling */
   position: absolute;
   left: -200px;
   width: 140px;
@@ -476,35 +482,36 @@ body {
 }
 .wind::before,
 .wind::after {
-  content: "";
+  content: "";/* Extra small wind lines before and after main wind line */
   position: absolute;
   height: 4px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.45);
 }
-.wind::before {
+.wind::before {/* Wind line before pseudo-element */
   width: 70px;
   top: -13px;
   left: 25px;
 }
 .wind::after {
   width: 95px;
-  top: 14px;
+  top: 14px;/* Wind line after pseudo-element */
   left: 45px;
 }
 .wind-1 {
-  top: 25%;
+  top: 25%;/* First wind position and delay */
   animation-delay: 0s;
 }
 .wind-2 {
-  top: 50%;
+  top: 50%;/* Second wind position and delay */
   animation-delay: 1.5s;
 }
 .wind-3 {
   top: 75%;
-  animation-delay: 3s;
+  animation-delay: 3s;/* Third wind position and delay */
 }
 /* INQUIRY PAGE */
+/* Main inquiry page container */
 .inquiry-page {
   position: relative;
   width: 100vw;
@@ -518,6 +525,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+/* Dark decorative overlay on inquiry page background */
 .inquiry-bg-overlay {
   position: absolute;
   inset: 0;
@@ -535,6 +543,7 @@ body {
     );
   backdrop-filter: blur(1.5px);
 }
+/* Back home button */
 .back-home {
   position: fixed;
   top: 28px;
@@ -558,12 +567,13 @@ body {
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-.back-home:hover {
+.back-home:hover {/* Hover effect for back home button */
   transform: scale(1.07);
   box-shadow:
     0 20px 44px rgba(0, 0, 0, 0.6),
     inset 0 0 20px rgba(255, 255, 255, 0.18);
 }
+/* Inquiry form card */
 .inquiry-card {
   position: relative;
   z-index: 3;
@@ -582,7 +592,7 @@ body {
   color: white;
   backdrop-filter: blur(8px);
 }
-.inquiry-card h1 {
+.inquiry-card h1 {/* Inquiry page heading */
   font-size: clamp(2.4rem, 6vw, 4.3rem);
   text-align: center;
   text-transform: uppercase;
@@ -593,23 +603,23 @@ body {
 .inquiry-subtitle {
   font-family: Arial, sans-serif;
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.6;/* Inquiry subtitle text */
   opacity: 0.9;
   margin-bottom: 28px;
 }
-.inquiry-form {
+.inquiry-form {/* Inquiry form layout */
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
-.inquiry-form label {
+.inquiry-form label {/* Inquiry form labels */
   font-size: 1.45rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-shadow: 0 5px 14px rgba(0, 0, 0, 0.55);
 }
 .inquiry-form input,
-.inquiry-form textarea {
+.inquiry-form textarea {/* Inquiry form input and textarea fields */
   width: 100%;
   border: 2px solid rgba(255, 255, 255, 0.5);
   outline: none;
@@ -629,11 +639,11 @@ body {
     box-shadow 0.25s ease;
 }
 .inquiry-form input::placeholder,
-.inquiry-form textarea::placeholder {
+.inquiry-form textarea::placeholder {/* Placeholder text colour */
   color: rgba(255, 255, 255, 0.72);
 }
 .inquiry-form input:focus,
-.inquiry-form textarea:focus {
+.inquiry-form textarea:focus {/* Focus effect for form fields */
   border-color: rgba(255, 220, 90, 0.95);
   background: rgba(0, 0, 0, 0.42);
   transform: scale(1.02);
@@ -643,8 +653,9 @@ body {
 }
 .inquiry-form textarea {
   min-height: 150px;
-  resize: none;
+  resize: none;/* Message box size */
 }
+/* Send inquiry button */
 .send-button {
   margin-top: 14px;
   border: none;
@@ -669,12 +680,13 @@ body {
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-.send-button:hover {
+.send-button:hover {/* Hover effect for send button */
   transform: scale(1.07);
   box-shadow:
     0 26px 54px rgba(0, 0, 0, 0.62),
     inset 0 0 22px rgba(255, 255, 255, 0.22);
 }
+/* Thank-you popup overlay */
 .thank-you-dialog {
   position: fixed;
   inset: 0;
@@ -688,11 +700,12 @@ body {
   transition:
     opacity 0.3s ease;
 }
+/* Shows the thank-you popup */
 .thank-you-dialog.show {
   opacity: 1;
   pointer-events: auto;
 }
-.thank-you-box {
+.thank-you-box {/* Thank-you popup box */
   position: relative;
   width: min(420px, 88vw);
   padding: 42px 34px 34px;
@@ -712,20 +725,21 @@ body {
     transform 0.3s ease;
 }
 .thank-you-dialog.show .thank-you-box {
-  transform: scale(1);
+  transform: scale(1);/* Enlarges thank-you popup when shown */
 }
-.thank-you-box h2 {
+.thank-you-box h2 {/* Thank-you popup heading */
   font-size: 2.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 14px;
 }
-.thank-you-box p {
+.thank-you-box p {/* Thank-you popup paragraph */
   font-family: Arial, sans-serif;
   line-height: 1.6;
   font-size: 1.1rem;
   margin-bottom: 24px;
 }
+/* Thank-you popup X close button */
 .dialog-close {
   position: absolute;
   top: 14px;
@@ -743,13 +757,13 @@ body {
     background 0.25s ease,
     color 0.25s ease;
 }
-.dialog-close:hover {
+.dialog-close:hover {/* Hover effect for thank-you popup X button */
   transform: scale(1.15) rotate(90deg);
   background: #111;
   color: white;
 }
 .dialog-ok {
-  border: none;
+  border: none;/* Thank-you popup OK button */
   border-radius: 999px;
   padding: 12px 34px;
   cursor: pointer;
@@ -765,11 +779,13 @@ body {
     transform 0.25s ease,
     background 0.25s ease;
 }
+/* Hover effect for OK button */
 .dialog-ok:hover {
   transform: scale(1.08);
   background: rgba(255, 255, 255, 0.28);
 }
 /* VIDEO PAGE */
+/* Main video page container */
 .video-page {
   position: relative;
   width: 100vw;
@@ -782,7 +798,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
+}/* Dark overlay for video page background */
 .video-bg-overlay {
   position: absolute;
   inset: 0;
@@ -800,7 +816,7 @@ body {
     );
   backdrop-filter: blur(1.2px);
 }
-.video-card {
+.video-card {/* Video content card */
   position: relative;
   z-index: 3;
   width: min(1000px, 90vw);
@@ -819,14 +835,14 @@ body {
   backdrop-filter: blur(8px);
 }
 .video-card h1 {
-  text-align: center;
+  text-align: center;/* Video page heading */
   font-size: clamp(2.5rem, 6vw, 5rem);
   text-transform: uppercase;
   letter-spacing: 4px;
   margin-bottom: 10px;
   text-shadow: 0 8px 22px rgba(0, 0, 0, 0.65);
 }
-.video-card p {
+.video-card p {/* Video page paragraph */
   font-family: Arial, sans-serif;
   text-align: center;
   font-size: 1.1rem;
@@ -834,7 +850,7 @@ body {
   margin-bottom: 26px;
   opacity: 0.9;
 }
-.video-frame {
+.video-frame {/* Video frame container */
   width: 100%;
   border-radius: 30px;
   overflow: hidden;
@@ -844,21 +860,21 @@ body {
     0 0 28px rgba(255, 255, 255, 0.18);
 }
 .video-frame video {
-  width: 100%;
+  width: 100%;/* Video element styling */
   max-height: 62vh;
   display: block;
   object-fit: contain;
   background: black;
 }
 .video-credit {
-  margin-top: 18px;
+  margin-top: 18px;/* Video credit text */
   margin-bottom: 0 !important;
   font-size: 0.95rem !important;
   opacity: 0.8;
   letter-spacing: 1px;
 }
 @keyframes windMove {
-  0% {
+  0% {/* Wind movement animation */
     transform: translateX(0);
     opacity: 0;
   }
@@ -871,6 +887,7 @@ body {
   }
 }
 /* Tablet */
+/* Tablet responsive styles */
 @media (max-width: 850px) {
   .menu-button {
     top: 20px;
@@ -946,6 +963,7 @@ body {
   }
 }
 /* Phone */
+/* Phone responsive styles */
 @media (max-width: 500px) {
   .title-area {
     width: 90%;
